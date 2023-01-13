@@ -5,7 +5,7 @@ import Best from './Best';
 import New from './New';
 import Top from './Top';
 import Hot from './Hot';
-import Long from './Long';
+import Long from './Rising';
 
 interface ControlProps {
   As: SortControl;

@@ -25,7 +25,7 @@ export function Citation({
       <button
         className={commonStyles['control__button']}
         type="button"
-        aria-label="Цитировать"
+        aria-label="Citation"
         onClick={onClick || noop}
       >
         <Icons.Component

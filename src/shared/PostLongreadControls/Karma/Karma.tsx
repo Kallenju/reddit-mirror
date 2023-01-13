@@ -28,7 +28,7 @@ export function Karma({
       <button
         className={`${commonStyles['control__button']} ${styles['karma__button-up']}`}
         type="button"
-        aria-label="Повысить карму"
+        aria-label="Up karma"
       >
         <Icons.Component
           block={Icons.KarmaIcons.up}
@@ -44,7 +44,7 @@ export function Karma({
       <button
         className={`${commonStyles['control__button']} ${styles['karma__button-down']}`}
         type="button"
-        aria-label="Понизить карму"
+        aria-label="Down karma"
       >
         <Icons.Component
           block={Icons.KarmaIcons.down}

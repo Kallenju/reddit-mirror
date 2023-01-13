@@ -25,7 +25,7 @@ export function AttachDocument({
       <button
         className={commonStyles['control__button']}
         type="button"
-        aria-label="Прикрепить документ"
+        aria-label="Attach document"
         onClick={onClick || noop}
       >
         <Icons.Component

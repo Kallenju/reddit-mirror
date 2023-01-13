@@ -8,30 +8,22 @@ export default function getFormattedDate(
   if (pastHours < 24) {
     switch (pastHours) {
       case 0: {
-        return 'меньше часа';
+        return 'less than an hour';
       }
       case 1: {
-        return 'час';
-      }
-      case 2:
-      case 3:
-      case 4:
-      case 21:
-      case 22:
-      case 23: {
-        return `${pastHours} часа`;
+        return 'an hour';
       }
       default: {
-        return `${pastHours} часов`;
+        return `${pastHours} hours`;
       }
     }
   }
 
-  const date: string = new Intl.DateTimeFormat('ru', {
+  const date: string = new Intl.DateTimeFormat('en-US', {
     year: 'numeric',
     month: 'long',
     day: '2-digit',
   }).format(difference);
 
-  return date.replace(' г.', '');
+  return date;
 }

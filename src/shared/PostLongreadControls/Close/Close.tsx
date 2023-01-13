@@ -25,7 +25,7 @@ export function Close({
       <button
         className={commonStyles['control__button']}
         type="button"
-        aria-label="Скрыть лонгрид"
+        aria-label="Close longread"
         onClick={onClick}
       >
         <Icons.Component

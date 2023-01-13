@@ -44,7 +44,7 @@ export function Share({ commonStyles, view }: ShareProps): React.ReactElement {
       <button
         className={commonStyles['control__button']}
         type="button"
-        aria-label="Поделиться постом"
+        aria-label="Share post"
       >
         <Icons.Component
           block={icon}
@@ -55,7 +55,7 @@ export function Share({ commonStyles, view }: ShareProps): React.ReactElement {
           view === 'longread-control-bar' ||
           view === 'shortread-control-bar' ||
           view === 'comment-control-bar') && (
-          <span className={commonStyles['control__label']}>Поделиться</span>
+          <span className={commonStyles['control__label']}>Share</span>
         )}
       </button>
     </div>

@@ -39,7 +39,7 @@ export function Save({ commonStyles, view }: SaveProps): React.ReactElement {
       <button
         className={commonStyles['control__button']}
         type="button"
-        aria-label="Сохранить пост себе"
+        aria-label="Save post"
       >
         <Icons.Component
           block={icon}
@@ -49,7 +49,7 @@ export function Save({ commonStyles, view }: SaveProps): React.ReactElement {
         {(view === 'post-menu' ||
           view === 'longread-control-bar' ||
           view === 'shortread-control-bar') && (
-          <span className={commonStyles['control__label']}>Сохранить</span>
+          <span className={commonStyles['control__label']}>Save</span>
         )}
       </button>
     </div>

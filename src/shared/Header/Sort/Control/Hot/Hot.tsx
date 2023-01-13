@@ -21,7 +21,7 @@ export function Hot({ styles, view }: HotProps): React.ReactElement {
         svgClassName={styles['control__svg']}
         svgPathClassName={styles['control__svg-path']}
       />
-      <span className={styles['control__label']}>Горячее</span>
+      <span className={styles['control__label']}>Hot</span>
       {view === 'toggle-button' && (
         <Icons.Component
           block={Icons.ArrowIcons.sort}

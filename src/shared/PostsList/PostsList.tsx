@@ -99,7 +99,7 @@ export function PostsList({
     return (
       <section className={styles['posts-list']}>
         <span className={`${styles['posts-list__message-to-user']}`}>
-          Чтобы загрузить список постов, пожалуйста, авторизуйтесь.
+          In order to see posts, please, authorize.
         </span>
       </section>
     );
@@ -109,7 +109,7 @@ export function PostsList({
     return (
       <section className={styles['posts-list']}>
         <span className={`${styles['posts-list__message-to-user']}`}>
-          Добро пожаловать. Идет загрузка списка постов.
+          Welcome to Reddit Mirror. Please, wait while we are loading posts.
         </span>
       </section>
     );
@@ -119,7 +119,7 @@ export function PostsList({
     return (
       <section className={styles['posts-list']}>
         <span className={`${styles['posts-list__message-to-user']}`}>
-          Постов не найдено. Выберите другой раздел.
+          Posts not found. Please, try another subreddit or api.
         </span>
       </section>
     );
@@ -129,7 +129,7 @@ export function PostsList({
     return (
       <section className={styles['posts-list']}>
         <h2 className={`${styles['posts-list__title']}`}>
-          Возникла ошибка при загрузке постов. Пожалуйста, попробуйте позже.
+          An error occurred while loading posts. Please try again later.
         </h2>
       </section>
     );
@@ -140,7 +140,7 @@ export function PostsList({
       <h2
         className={`${styles['posts-list__title']} ${styles['posts-list__title_hidden']}`}
       >
-        Список постов
+        Posts List
       </h2>
       <ul className={styles['posts-list__list']}>
         <GenericList items={items} />
@@ -149,19 +149,20 @@ export function PostsList({
         className={styles['posts-list__download-flag']}
         ref={downloadFlagRef}
       ></span>
-      {items.length % (3 * postsLimit) === 0 &&
+      {items.length &&
+        items.length % (3 * postsLimit) === 0 &&
         postsData.state !== 'pending' &&
         !postsData.end && (
           <button
             className={`${styles['posts-list__load-button']}`}
             onClick={() => setFetchPostsTrigger(true)}
           >
-            Загрузить еще
+            Download more posts
           </button>
         )}
       {postsData.state === 'pending' && !postsData.end && (
         <span className={`${styles['posts-list__message-to-user']}`}>
-          Идет подгрузка постов, пожалуйста, ожидайте.
+          Posts are loading, please wait.
         </span>
       )}
     </section>

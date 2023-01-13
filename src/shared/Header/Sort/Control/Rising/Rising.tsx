@@ -1,7 +1,7 @@
 import React from 'react';
 import Icons from '../../../../../Icons';
 
-interface LongProps {
+interface RisingProps {
   styles: {
     button: string;
     control__svg: string;
@@ -13,15 +13,15 @@ interface LongProps {
   view?: 'toggle-button' | 'control';
 }
 
-export function Long({ styles, view }: LongProps): React.ReactElement {
+export function Rising({ styles, view }: RisingProps): React.ReactElement {
   return (
     <a className={styles['button']} href="#url-sort">
       <Icons.Component
-        block={Icons.LongIcons.sort}
+        block={Icons.RisingIcons.sort}
         svgClassName={styles['control__svg']}
         svgPathClassName={styles['control__svg-path']}
       />
-      <span className={styles['control__label']}>Длинные</span>
+      <span className={styles['control__label']}>Rising</span>
       {view === 'toggle-button' && (
         <Icons.Component
           block={Icons.ArrowIcons.sort}

@@ -7,20 +7,20 @@ export function PostsSearch(): React.ReactElement {
     <form className={styles['posts-search']} name="posts-search">
       <fieldset className={styles['posts-search__fieldset']}>
         <legend className={styles['posts-search__fieldset-legend']}>
-          Поиск постов
+          Search posts
         </legend>
         <label
           className={styles['posts-search__label']}
           htmlFor="posts-search-input"
         >
-          Поисковый запрос
+          Search request
         </label>
         <div className={styles['posts-search__input-wrapper']}>
           <input
             className={styles['posts-search__input']}
             id="posts-search-input"
             type="text"
-            placeholder="Поиск"
+            placeholder="Search"
             required
           />
           <Icons.Component

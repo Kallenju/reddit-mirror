@@ -21,7 +21,7 @@ export function Best({ styles, view }: BestProps): React.ReactElement {
         svgClassName={styles['control__svg']}
         svgPathClassName={styles['control__svg-path']}
       />
-      <span className={styles['control__label']}>Лучшее</span>
+      <span className={styles['control__label']}>Best</span>
       {view === 'toggle-button' && (
         <Icons.Component
           block={Icons.ArrowIcons.sort}

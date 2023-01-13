@@ -1,22 +1,22 @@
 import React from 'react';
 
-export enum LongIcons {
-  sort = 'long__sort',
+export enum RisingIcons {
+  sort = 'rising__sort',
 }
 
-interface LongProps {
-  block: LongIcons;
+interface RisingProps {
+  block: RisingIcons;
   svgClassName: string;
   svgPathClassName: string;
 }
 
-export function Long({
+export function Rising({
   block,
   svgClassName,
   svgPathClassName,
-}: LongProps): React.ReactElement {
+}: RisingProps): React.ReactElement {
   switch (block) {
-    case LongIcons.sort:
+    case RisingIcons.sort:
       return (
         <svg
           className={svgClassName}

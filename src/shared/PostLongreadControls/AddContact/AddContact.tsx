@@ -25,7 +25,7 @@ export function AddContact({
       <button
         className={commonStyles['control__button']}
         type="button"
-        aria-label="Добавить контакт"
+        aria-label="Add contact"
         onClick={onClick || noop}
       >
         <Icons.Component

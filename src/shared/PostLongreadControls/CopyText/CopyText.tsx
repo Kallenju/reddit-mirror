@@ -25,7 +25,7 @@ export function CopyText({
       <button
         className={commonStyles['control__button']}
         type="button"
-        aria-label="Копировать текст"
+        aria-label="Copy text"
         onClick={onClick || noop}
       >
         <Icons.Component

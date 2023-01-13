@@ -3,16 +3,11 @@ const path = require('path');
 const dotenv = require('dotenv');
 
 dotenv.config({
-  path: path.resolve(__dirname, `../.${process.env.DOTENV}.env`),
+  path: path.resolve(__dirname, `../.${process.env.NODE_ENV}.env`),
 });
 
-const {
-  NODE_ENV = 'development',
-  DEV_SERVER_PORT = 3000,
-  PROD_SERVER_PORT = 3000,
-  CLIENT_ID = '6SYUC7J5KZiAhHWYmx2N3A',
-  CLIENT_SECRET = 'Gq6PrK7xbnsjzjs77RDwR_9sIetbhg',
-} = process.env;
+const { NODE_ENV, URI, PORT, HMR_SERVER_PORT, CLIENT_ID, CLIENT_SECRET } =
+  process.env;
 
 const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -157,22 +152,27 @@ const basePlugins = [
   new webpack.DefinePlugin({
     __CLIENT_ID: `'${CLIENT_ID}'`,
     __CLIENT_SECRET: `'${CLIENT_SECRET}'`,
-    __PORT: `'${
-      NODE_ENV === 'development' ? DEV_SERVER_PORT : PROD_SERVER_PORT
-    }'`,
+    __PORT: `'${PORT}'`,
   }),
 ];
 
 module.exports = {
-  entry: [
-    path.resolve(__dirname, '../src/client/index.tsx'),
-    'webpack-hot-middleware/client?path=//localhost:3001/static/__webpack_hmr',
-  ],
+  entry:
+    NODE_ENV === 'development'
+      ? [
+          path.resolve(__dirname, '../src/client/index.tsx'),
+          `webpack-hot-middleware/client?path=${URI}:${HMR_SERVER_PORT}/static/__webpack_hmr`,
+        ]
+      : path.resolve(__dirname, '../src/client/index.tsx'),
+
   output: {
     path: path.resolve(__dirname, '../dist/client'),
     filename:
       NODE_ENV === 'development' ? 'client.js' : 'client.[contenthash].js',
-    publicPath: 'http://localhost:3001/static',
+    publicPath:
+      NODE_ENV === 'development'
+        ? `${URI}:${HMR_SERVER_PORT}/static`
+        : undefined,
   },
 
   module: {
@@ -227,4 +227,6 @@ module.exports = {
       : basePlugins,
 
   mode: NODE_ENV === 'development' ? 'development' : 'production',
+
+  target: 'web',
 };

@@ -8,48 +8,24 @@ dotenv.config({
   path: path.resolve(__dirname, `../.${process.env.NODE_ENV}.env`),
 });
 
-const { NODE_ENV, SSR_ABORT_DELAY } = process.env;
+const { SSR_ABORT_DELAY } = process.env;
 
-import fs from 'fs';
 import { Response } from 'express';
 import React, { StrictMode } from 'react';
 import { renderToPipeableStream } from 'react-dom/server';
-import AssetsMap from '../interfaces/AssetsMap';
-import { Provider } from 'react-redux';
-import { StaticRouter } from 'react-router-dom/server';
-import { RootState, store } from '../store';
-import App from '../App';
+import NotFound from '../views/NotFound';
 
 const isCrawler = false;
-const pathToAssetsMap = path.resolve(
-  __dirname,
-  NODE_ENV === 'development' ? '../../dist/assetsMap.json' : '../assetsMap.json'
-);
 
 export default function render(url: string, response: Response): void {
-  const __ASSETS_MAP__: AssetsMap = JSON.parse(
-    fs.readFileSync(pathToAssetsMap, 'utf8')
-  ).main;
-  const __PRELOADED_STATE__: RootState = store.getState();
-
   let didError = false;
 
   const stream: ReturnType<typeof renderToPipeableStream> =
     renderToPipeableStream(
       <StrictMode>
-        <Provider store={store}>
-          <StaticRouter location={url}>
-            <App assetsMap={__ASSETS_MAP__} />
-          </StaticRouter>
-        </Provider>
+        <NotFound />
       </StrictMode>,
       {
-        bootstrapScriptContent: `window.__ASSETS_MAP__ = ${JSON.stringify(
-          __ASSETS_MAP__
-        )}; window.__PRELOADED_STATE__ = ${JSON.stringify(
-          __PRELOADED_STATE__
-        ).replace(/</g, '\\u003c')};`,
-        bootstrapScripts: [`/static/${__ASSETS_MAP__.js}`],
         onShellReady() {
           if (!isCrawler) {
             response.statusCode = didError ? 500 : 200;

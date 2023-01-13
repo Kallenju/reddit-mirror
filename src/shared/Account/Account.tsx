@@ -73,7 +73,7 @@ export function Account({
           userName ? styles['account__name'] : styles['account__anon-name']
         }
       >
-        {userName || 'Аноним'}
+        {userName || 'Anonymous'}
       </span>
     </a>
   );

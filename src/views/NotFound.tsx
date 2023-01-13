@@ -1,15 +1,6 @@
 import React from 'react';
-import AssetsMap from '../interfaces/AssetsMap';
 
-interface IndexProps {
-  assetsMap: AssetsMap;
-  children: React.ReactNode;
-}
-
-export default function Index({
-  assetsMap,
-  children,
-}: IndexProps): React.ReactElement {
+export default function NotFound(): React.ReactElement {
   return (
     <html lang="en">
       <head>
@@ -41,19 +32,12 @@ export default function Index({
         />
 
         <link rel="stylesheet" href="/static/styles/fonts/fonts.css" />
-        {assetsMap.css && (
-          <link rel="stylesheet" href={`/static/${assetsMap.css}`} />
-        )}
+        <link rel="stylesheet" href="/static/styles/notfound/notfound.css" />
       </head>
       <body>
-        <noscript
-          dangerouslySetInnerHTML={{
-            __html: `<b>Enable JavaScript to run this app.</b>`,
-          }}
-        />
-        {children}
-        <div id="dropdown-root"></div>
-        <div id="modal-root"></div>
+        <div className="not-found">
+          <h1 className="not-found__title">404 — Not Found</h1>
+        </div>
       </body>
     </html>
   );

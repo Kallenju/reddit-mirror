@@ -54,7 +54,7 @@ export function Comments({
       />
       {(view === 'post-menu' || view === 'comment-control-bar') && (
         <span className={commonStyles['control__label']}>
-          {view === 'comment-control-bar' ? 'Ответить' : 'Комментарии'}
+          {view === 'comment-control-bar' ? 'Reply' : 'Comments'}
         </span>
       )}
       {(view === 'post-control-bar' ||

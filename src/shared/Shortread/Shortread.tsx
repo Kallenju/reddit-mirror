@@ -58,7 +58,7 @@ export function Shortread(): React.ReactElement {
           date={comments.post.created_utc}
           title={comments.post.title}
           karma={comments.post.score}
-          tag={'Законодательство'}
+          tag={'Workout'}
         />
         <Main title={comments.post.title} preview={comments.post.preview} />
         <Footer

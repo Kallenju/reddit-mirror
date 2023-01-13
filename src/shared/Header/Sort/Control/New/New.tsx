@@ -21,7 +21,7 @@ export function New({ styles, view }: NewProps): React.ReactElement {
         svgClassName={styles['control__svg']}
         svgPathClassName={styles['control__svg-path']}
       />
-      <span className={styles['control__label']}>Новое</span>
+      <span className={styles['control__label']}>New</span>
       {view === 'toggle-button' && (
         <Icons.Component
           block={Icons.ArrowIcons.sort}

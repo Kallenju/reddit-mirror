@@ -25,7 +25,7 @@ export function RecordVoice({
       <button
         className={commonStyles['control__button']}
         type="button"
-        aria-label="Записать голос"
+        aria-label="Record Voice"
         onClick={onClick || noop}
       >
         <Icons.Component

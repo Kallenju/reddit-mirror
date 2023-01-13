@@ -3,10 +3,10 @@ const path = require('path');
 const dotenv = require('dotenv');
 
 dotenv.config({
-  path: path.resolve(__dirname, `../.${process.env.DOTENV}.env`),
+  path: path.resolve(__dirname, `../.${process.env.NODE_ENV}.env`),
 });
 
-const { DEV_SERVER_PORT = 3000, HMR_SERVER_PORT = 3001 } = process.env;
+const { URI, PORT, HMR_SERVER_PORT } = process.env;
 
 const express = require('express');
 const webpack = require('webpack');
@@ -24,8 +24,8 @@ const hmrServer = express();
 const clientCompiler = webpack(webpackClientConfig);
 
 const allowedOrigins = [
-  `http://localhost:${DEV_SERVER_PORT}`,
-  `http://localhost:${HMR_SERVER_PORT}`,
+  `${URI}:${PORT}`,
+  `${URI}:${HMR_SERVER_PORT}`,
 ];
 
 hmrServer.use(
@@ -59,7 +59,7 @@ hmrServer.use(
 
 hmrServer.listen(HMR_SERVER_PORT, () => {
   console.log(
-    `\nHMR Server successfully started on http://localhost:${HMR_SERVER_PORT}\n`
+    `\nHMR Server successfully started on ${URI}:${HMR_SERVER_PORT}\n`
   );
 });
 
@@ -86,6 +86,6 @@ serverCompiler.run((err) => {
   });
 
   console.log(
-    `\n!!!Server!!!\nServer started on port http://localhost:${DEV_SERVER_PORT}\n!!!Server!!!`
+    `\n!!!Server!!!\nServer started on port ${URI}:${DEV_SERVER_PORT}\n!!!Server!!!`
   );
 });

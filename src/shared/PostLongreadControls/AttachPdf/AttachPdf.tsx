@@ -25,7 +25,7 @@ export function AttachPdf({
       <button
         className={commonStyles['control__button']}
         type="button"
-        aria-label="Прикрепить пдф"
+        aria-label="Attach PDF"
         onClick={onClick || noop}
       >
         <Icons.Component

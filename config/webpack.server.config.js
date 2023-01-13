@@ -3,15 +3,14 @@ const path = require('path');
 const dotenv = require('dotenv');
 
 dotenv.config({
-  path: path.resolve(__dirname, `../.${process.env.DOTENV}.env`),
+  path: path.resolve(__dirname, `../.${process.env.NODE_ENV}.env`),
 });
 
 const {
-  NODE_ENV = 'development',
-  DEV_SERVER_PORT = 3000,
-  PROD_SERVER_PORT = 3000,
-  CLIENT_ID = '6SYUC7J5KZiAhHWYmx2N3A',
-  CLIENT_SECRET = 'Gq6PrK7xbnsjzjs77RDwR_9sIetbhg',
+  NODE_ENV,
+  PORT,
+  CLIENT_ID,
+  CLIENT_SECRET,
 } = process.env;
 
 const webpackNodeExternals = require('webpack-node-externals');
@@ -25,9 +24,7 @@ const basePlugins = [
   new webpack.DefinePlugin({
     __CLIENT_ID: `'${CLIENT_ID}'`,
     __CLIENT_SECRET: `'${CLIENT_SECRET}'`,
-    __PORT: `'${
-      NODE_ENV === 'development' ? DEV_SERVER_PORT : PROD_SERVER_PORT
-    }'`,
+    __PORT: `'${PORT}'`,
   }),
 ];
 

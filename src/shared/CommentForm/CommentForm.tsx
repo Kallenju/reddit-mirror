@@ -35,11 +35,11 @@ function CommentForm({
   const { name, onChange, onBlur, ref } = register(`${view}`, {
     required: {
       value: true,
-      message: 'Поле не может быть пустым',
+      message: 'Cannot be empty',
     },
     maxLength: {
       value: 280,
-      message: 'Максимальная длина комментария 280 символов',
+      message: 'Max length is 280',
     },
     onChange: (event: React.ChangeEvent<HTMLTextAreaElement>) => {
       clearErrors(`${view}`);
@@ -64,7 +64,7 @@ function CommentForm({
         className={`${styles['comment-form__label']} ${styles['comment-form__label_hidden']}`}
         htmlFor="textareaForComment"
       >
-        Поле для ввода комментария
+        Field for comment
       </label>
       <textarea
         id="textareaForComment"
@@ -79,7 +79,7 @@ function CommentForm({
       <div className={styles['comment-form__controls']}>
         <ControlBar />
         <button className={styles['comment-form__submit-button']} type="submit">
-          Комментировать
+          {view === 'comment' ? 'Comment' : 'Reply'}
         </button>
       </div>
 

@@ -12,7 +12,7 @@ import { Best, BestIcons } from './sort/Best';
 import { New, NewIcons } from './sort/New';
 import { Top, TopIcons } from './sort/Top';
 import { Hot, HotIcons } from './sort/Hot';
-import { Long, LongIcons } from './sort/Long';
+import { Rising, RisingIcons } from './sort/Rising';
 import { Arrow, ArrowIcons } from './sort/Arrow';
 import { AddContact, AddContactIcons } from './commentForm/AddContact';
 import { Attach, AttachIcons } from './commentForm/Attach';
@@ -46,7 +46,7 @@ interface IconsProps {
     | NewIcons
     | TopIcons
     | HotIcons
-    | LongIcons
+    | RisingIcons
     | ArrowIcons
     | AddContactIcons
     | AttachIcons
@@ -79,7 +79,7 @@ export {
   NewIcons,
   TopIcons,
   HotIcons,
-  LongIcons,
+  RisingIcons,
   ArrowIcons,
   AddContactIcons,
   AttachIcons,
@@ -247,9 +247,9 @@ export function Component({
           svgPathClassName={svgPathClassName}
         />
       );
-    case LongIcons.sort:
+    case RisingIcons.sort:
       return (
-        <Long
+        <Rising
           block={block}
           svgClassName={svgClassName}
           svgPathClassName={svgPathClassName}

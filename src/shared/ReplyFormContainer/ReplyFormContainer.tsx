@@ -1,12 +1,11 @@
 import React, { useEffect, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store';
+import MirrorRedditUser from '../../interfaces/MirrorRedditUser';
+import CommentFormType from '../../interfaces/CommentForm';
 import selectUser from '../../store/selectors/selectUser';
+import useCommentText from '../../hooks/useCommentText';
 import CommentForm from '../CommentForm';
-import {
-  useCommentFormsState,
-  useCommentFormsActions,
-} from '../../zustand/useCommentForms';
 
 interface ReplyFormContainerProps {
   id: string;
@@ -24,17 +23,19 @@ export function ReplyFormContainer({
   const user: RootState['user'] = useSelector<RootState, RootState['user']>(
     selectUser
   );
-  const { value } = useCommentFormsState()[id] || { value: '' };
-  const { setCommentText } = useCommentFormsActions();
+  const [commentText, setCommentText]: [
+    CommentFormType,
+    React.Dispatch<React.SetStateAction<CommentFormType>>
+  ] = useCommentText({ id, value: '' });
 
   useEffect(() => {
-    if (user && !value) {
+    if (user && !commentText.value) {
       setCommentText({
         id,
-        value: `${replyTo || 'Аноним'},`,
+        value: `${replyTo || 'Anonymous'},`,
       });
     }
-  }, [id, user, replyTo, value, setCommentText]);
+  }, [id, user, replyTo, commentText, setCommentText]);
 
   const handleOnSubmit = useCallback(
     (
@@ -48,7 +49,7 @@ export function ReplyFormContainer({
         console.log(JSON.stringify(data));
         setCommentText({
           id,
-          value: `${replyTo || 'Аноним'},`,
+          value: `${replyTo || 'Anonymous'},`,
         });
         onValidSubmit(event);
       }
@@ -70,7 +71,7 @@ export function ReplyFormContainer({
     <CommentForm
       onValidSubmitHandler={handleOnSubmit}
       onChangeHandler={handleOnChange}
-      textAreaValue={value}
+      textAreaValue={commentText.value}
       view="reply"
     />
   );

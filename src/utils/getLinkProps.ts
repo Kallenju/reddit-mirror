@@ -12,12 +12,12 @@ export default function getLinkProps(
     if (token) {
       return {
         href: `#my-account`,
-        ariaLabelledby: `Перейти в профиль ${userName}`,
+        ariaLabelledby: `Go to profile of ${userName}`,
       };
     } else {
       return {
         href: `https://www.reddit.com/api/v1/authorize?client_id=${__CLIENT_ID}&response_type=code&state=RANDOMSTRING&redirect_uri=http://localhost:${__PORT}/auth&duration=permanent&scope=read%20submit%20identity`,
-        ariaLabelledby: 'Перейти в форму входа',
+        ariaLabelledby: 'Go to login page',
       };
     }
   }
@@ -31,12 +31,12 @@ export default function getLinkProps(
     if (userName) {
       return {
         href: `#user-url`,
-        ariaLabelledby: `Перейти в профиль ${userName}`,
+        ariaLabelledby: `Go to profile of ${userName}`,
       };
     } else {
       return {
         href: ``,
-        ariaLabelledby: 'Анонимный пост. Нет информации об авторе',
+        ariaLabelledby: 'Anonymous post. No user profile available',
       };
     }
   }

@@ -39,7 +39,7 @@ export function Hide({ commonStyles, view }: HideProps): React.ReactElement {
       <button
         className={commonStyles['control__button']}
         type="button"
-        aria-label="Скрыть пост"
+        aria-label="Hide post"
       >
         <Icons.Component
           block={icon}
@@ -49,7 +49,7 @@ export function Hide({ commonStyles, view }: HideProps): React.ReactElement {
         {(view === 'post-menu' ||
           view === 'longread-control-bar' ||
           view === 'shortread-control-bar') && (
-          <span className={commonStyles['control__label']}>Скрыть</span>
+          <span className={commonStyles['control__label']}>Hide</span>
         )}
       </button>
     </div>

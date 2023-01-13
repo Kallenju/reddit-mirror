@@ -25,7 +25,7 @@ export function FormatText({
       <button
         className={commonStyles['control__button']}
         type="button"
-        aria-label="Форматировать текст"
+        aria-label="Format text"
         onClick={onClick || noop}
       >
         <Icons.Component

@@ -25,7 +25,7 @@ export function Download({
       <button
         className={commonStyles['control__button']}
         type="button"
-        aria-label="Скачать"
+        aria-label="Download"
         onClick={onClick || noop}
       >
         <Icons.Component

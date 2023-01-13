@@ -1,12 +1,10 @@
 import React, { useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store';
+import CommentFormType from '../../interfaces/CommentForm';
 import selectUser from '../../store/selectors/selectUser';
+import useCommentText from '../../hooks/useCommentText';
 import CommentForm from '../CommentForm';
-import {
-  useCommentFormsState,
-  useCommentFormsActions,
-} from '../../zustand/useCommentForms';
 
 interface CommentFormContainerProps {
   id: string;
@@ -18,8 +16,10 @@ export function CommentFormContainer({
   const user: RootState['user'] = useSelector<RootState, RootState['user']>(
     selectUser
   );
-  const { value } = useCommentFormsState()[id] || { value: '' };
-  const { setCommentText } = useCommentFormsActions();
+  const [commentText, setCommentText]: [
+    CommentFormType,
+    React.Dispatch<React.SetStateAction<CommentFormType>>
+  ] = useCommentText({ id, value: '' });
 
   const handleOnSubmit = useCallback(
     (
@@ -51,8 +51,8 @@ export function CommentFormContainer({
     <CommentForm
       onValidSubmitHandler={handleOnSubmit}
       onChangeHandler={handleOnChange}
-      textAreaValue={value}
-      placeholder={`${user.data.name}, оставьте ваш комментарий`}
+      textAreaValue={commentText.value}
+      placeholder={`${user.data.name}, leave a comment`}
       view="comment"
     />
   );

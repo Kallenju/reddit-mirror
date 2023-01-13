@@ -1,25 +1,25 @@
 {
   "private": true,
   "scripts": {
-    "dev": "set DOTENV=development&&node ./bin/dev.js",
-    "build:dev": "set DOTENV=development&&webpack --config ./webpack.config.js",
-    "build:prod": "set DOTENV=production&&webpack --config ./webpack.config.js",
-    "test": "set DOTENV=test&&jest",
-    "test:watch": "set DOTENV=test&&jest --watch",
+    "dev": "set NODE_ENV=development&&node ./bin/dev.js",
+    "build": "set NODE_ENV=production&&webpack --config ./webpack.config.js",
+    "test": "set NODE_ENV=test&&jest",
+    "test:watch": "set NODE_ENV=test&&jest --watch",
     "lint": "eslint ./src/**/*.{js,jsx,ts,tsx,json}",
     "lint:fix": "eslint --fix ./src/**/*.{js,jsx,ts,tsx,json}",
     "prettier": "prettier --check  --config ./.prettierrc.js ./src/**/*.{js,jsx,ts,tsx,css,md,json}",
     "prettier:fix": "prettier --write --config ./.prettierrc.js ./src/**/*.{js,jsx,ts,tsx,css,md,json}",
-    "check-types": "tsc"
+    "check-types": "tsc",
+    "start": "node ./dist/server/server.js"
   },
   "engines": {
-    "node": ">=16.0.0"
+    "node": ">=18.12.0"
   },
   "dependencies": {
     "@hookform/error-message": "^2.0.1",
     "@reduxjs/toolkit": "^1.9.1",
     "core-js": "^3.26.1",
-    "node-fetch": "^2.6.7",
+    "helmet": "^6.0.1",
     "react": "^18.2.0",
     "react-custom-scrollbars-2": "^4.5.0",
     "react-dom": "^18.2.0",

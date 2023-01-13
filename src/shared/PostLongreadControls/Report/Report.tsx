@@ -47,7 +47,7 @@ export function Report({
       <button
         className={commonStyles['control__button']}
         type="button"
-        aria-label="Пожаловаться на пост"
+        aria-label="Report post"
       >
         <Icons.Component
           block={icon}
@@ -58,7 +58,7 @@ export function Report({
           view === 'longread-control-bar' ||
           view === 'shortread-control-bar' ||
           view === 'comment-control-bar') && (
-          <span className={commonStyles['control__label']}>Пожаловаться</span>
+          <span className={commonStyles['control__label']}>Report</span>
         )}
       </button>
     </div>

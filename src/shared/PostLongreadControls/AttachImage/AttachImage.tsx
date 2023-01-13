@@ -25,7 +25,7 @@ export function AttachImage({
       <button
         className={commonStyles['control__button']}
         type="button"
-        aria-label="Прикрепить картинку"
+        aria-label="Attach image"
         onClick={onClick || noop}
       >
         <Icons.Component

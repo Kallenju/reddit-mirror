@@ -22,7 +22,7 @@ export function CreatedAt({
       className={`${styles['created-at']} ${styles[`created-at_view_${view}`]}`}
     >
       {(prefix || prefix === undefined) && (
-        <span className={styles['created-at__prefix']}>Опубликовано </span>
+        <span className={styles['created-at__prefix']}>Published </span>
       )}
       {date ? (
         <>
@@ -30,11 +30,11 @@ export function CreatedAt({
             {getFormattedDate(date, Date.now())}
           </time>
           {Math.floor((Date.now() - date) / (60 * 60 * 1000)) < 24 && (
-            <span className={styles['created-at__postfix']}> назад</span>
+            <span className={styles['created-at__postfix']}> ago</span>
           )}
         </>
       ) : (
-        'Только что'
+        'Just now'
       )}
     </span>
   );

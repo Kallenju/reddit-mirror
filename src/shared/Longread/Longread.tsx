@@ -21,8 +21,6 @@ export function Longread(): React.ReactElement {
   const { id = '1' }: { id?: string } = useParams<{ id?: string }>();
   const navigate = useNavigate();
 
-  console.log('Longread.tsx: id = ', id);
-
   const [longreadRoot]: [HTMLDivElement | null] = useModalRoot();
   const [longreadMirrorData]: [MirrorRedditLongreadData | null] =
     useLongreadData(id);
@@ -58,7 +56,7 @@ export function Longread(): React.ReactElement {
           date={longreadMirrorData.created_utc}
           title={longreadMirrorData.title}
           karma={longreadMirrorData.score}
-          tag={'Законодательство'}
+          tag={'Workout'}
         />
         <Main
           paragraphs={longreadMirrorData.paragraphs}

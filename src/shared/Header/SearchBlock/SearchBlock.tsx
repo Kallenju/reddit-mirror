@@ -18,7 +18,7 @@ export function SearchBlock(): React.ReactElement {
       <Message />
       <PostsSearch />
       <Account
-        userName={'Загрузка...'}
+        userName={'Loading...'}
         userIcon={user.data.icon_img}
         view={'personal-header'}
       />
@@ -30,7 +30,7 @@ export function SearchBlock(): React.ReactElement {
       <Message />
       <PostsSearch />
       <Account
-        userName={'Ошибка...'}
+        userName={'Error...'}
         userIcon={user.data.icon_img}
         view={'personal-header'}
       />
