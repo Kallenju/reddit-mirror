@@ -1,0 +1,18 @@
+.header
+  display flex
+  flex-direction row
+  justify-content space-between
+  align-items center
+  margin 0
+  margin-bottom 7.00rem
+  padding 7.00rem var(--container-margins)
+  padding-bottom 0
+  width 100%
+  @media screen and (max-width var(--breakpoint_md))
+    padding 4.00rem var(--container-margins_md)
+    padding-bottom 0
+  @media screen and (max-width var(--breakpoint_sm))
+    flex-direction column
+    align-items flex-start
+    margin-bottom 2.00rem
+    padding 0

@@ -1,0 +1,24 @@
+.tag
+  display inline-block
+  margin 0
+  padding 0
+  font-family var(--font-family-primary), sans-serif
+  font-size var(--font-size_sm)
+  font-weight var(--font-weight_xs)
+  line-height var(--line-height_sm)
+  color var(--text-color-primary)
+  transition color var(--transition-time_slow) linear
+  background var(--background-color-secondary)
+  @media screen and (max-width var(--breakpoint_md))
+    font-size var(--font-size_xs)
+  @media screen and (max-width var(--breakpoint_sm))
+    font-size var(--font-size_xxs)
+
+.tag_view_longread-header,
+.tag_view_shortread-header
+  margin 0
+  padding 0.30rem 1.00rem
+
+.tag_view_comment-header
+  margin 0
+  padding 0

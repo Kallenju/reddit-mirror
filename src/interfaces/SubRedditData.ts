@@ -1,0 +1,47 @@
+interface SubRedditData {
+  default_set: boolean;
+  banner_img: string;
+  allowed_media_in_comments: Array<string>;
+  user_is_banned: boolean;
+  free_form_reports: boolean;
+  community_icon: string | null;
+  show_media: boolean;
+  description: string;
+  user_is_muted: string | null;
+  display_name: string;
+  header_img: string | null;
+  title: string;
+  previous_names: Array<string>;
+  user_is_moderator: boolean;
+  over_18: boolean;
+  icon_size: string | null;
+  primary_color: string;
+  icon_img: string;
+  icon_color: string;
+  is_chat_post_feature_enabled: boolean;
+  submit_link_label: string;
+  header_size: string | null;
+  restrict_posting: boolean;
+  restrict_commenting: boolean;
+  subscribers: number;
+  submit_text_label: string;
+  link_flair_position: string;
+  display_name_prefixed: string;
+  key_color: string;
+  name: string;
+  created: number;
+  url: string;
+  quarantine: boolean;
+  created_utc: number;
+  banner_size: string | null;
+  allow_chat_post_creation: boolean;
+  user_is_contributor: boolean;
+  accept_followers: boolean;
+  public_description: string;
+  link_flair_enabled: boolean;
+  disable_contributor_requests: boolean;
+  subreddit_type: string;
+  user_is_subscriber: boolean;
+}
+
+export { type SubRedditData as default };

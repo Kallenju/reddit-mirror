@@ -1,0 +1,29 @@
+.share
+  display flex
+  flex-direction row
+  justify-content space-between
+  align-items center
+  outline none
+
+.share_view_post-menu
+  @media screen and (max-width var(--breakpoint_sm))
+    display none
+
+.share__svg
+  margin 0
+  padding 0
+
+.share_view_post-control-bar
+  .share__svg
+    margin-right 0
+    width 2.00rem
+    height 2.00rem
+
+.share_view_post-menu,
+.share_view_longread-control-bar,
+.share_view_shortread-control-bar,
+.share_view_comment-control-bar
+  .share__svg
+    margin-right 0.50rem
+    width 1.20rem
+    height 1.40rem

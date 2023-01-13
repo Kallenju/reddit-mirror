@@ -1,0 +1,98 @@
+.control_view_post-control-bar
+  display none
+  @media screen and (max-width var(--breakpoint_sm))
+    display flex
+
+.control_view_post-control-bar
+  .control__svg
+    margin-right 0.55rem
+    width 1.50rem
+    height 1.50rem
+
+.control_view_post-control-bar
+  .control__svg-path
+    fill var(--color-dark-grey)
+
+.control_view_post-control-bar
+  .control__button
+    &:hover:not(:focus) .control__svg-path
+      fill var(--color-hover-primary)
+      @media (hover none)
+        fill var(--color-middle-grey)
+      @supports (selector:focus-visible)
+        fill var(--color-middle-grey)
+
+    &:active .control__svg-path
+      fill var(--color-hover-primary)
+      transition fill var(--transition-time_fast) ease-out
+      @supports (selector:focus-visible)
+        fill var(--color-middle-grey)
+
+    &:focus-visible .control__svg-path
+      @supports (selector:focus-visible)
+        fill var(--color-hover-primary)
+
+    &:hover:not(:focus-visible) .control__svg-path
+      @supports (selector:focus-visible)
+        @media (hover hover)
+          fill var(--color-hover-primary)
+
+    &:active:not(:focus-visible) .control__svg-path
+      @supports (selector:focus-visible)
+        fill var(--color-hover-primary)
+        transition fill var(--transition-time_fast) ease-out
+
+.control_view_post-control-bar
+  .control__label
+    color var(--color-middle-grey)
+
+.control_view_post-control-bar
+  .control__button
+    &:hover:not(:focus) .control__label
+      color var(--color-hover-primary)
+      @media (hover none)
+        color var(--color-middle-grey)
+      @supports (selector:focus-visible)
+        color var(--color-middle-grey)
+
+    &:active .control__label
+      color var(--color-hover-primary)
+      transition color var(--transition-time_fast) ease-out
+      @supports (selector:focus-visible)
+        color var(--color-middle-grey)
+
+    &:hover:not(:focus-visible) .control__label
+      @supports (selector:focus-visible)
+        @media (hover hover)
+          color var(--color-hover-primary)
+
+    &:active:not(:focus-visible) .control__label
+      @supports (selector:focus-visible)
+        color var(--color-hover-primary)
+        transition color var(--transition-time_fast) ease-out
+
+.control_view_post-control-bar
+  .control__button
+    &:hover:not(:focus) .control__counter
+      color var(--color-hover-primary)
+      @media (hover none)
+        color var(--color-middle-grey)
+      @supports (selector:focus-visible)
+        color var(--color-middle-grey)
+
+    &:active .control__counter
+      color var(--color-hover-primary)
+      transition color var(--transition-time_fast) ease-out
+      @supports (selector:focus-visible)
+        color var(--color-middle-grey)
+
+    &:hover:not(:focus-visible) .control__counter
+      @supports (selector:focus-visible)
+        @media (hover hover)
+          color var(--color-hover-primary)
+
+    &:active:not(:focus-visible) .control__counter
+      @supports (selector:focus-visible)
+        color var(--color-hover-primary)
+        transition color var(--transition-time_fast) ease-out
+

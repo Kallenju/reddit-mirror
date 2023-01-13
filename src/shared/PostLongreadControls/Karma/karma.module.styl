@@ -1,0 +1,113 @@
+.karma
+  flex-direction column
+  @media screen and (max-width var(--breakpoint_sm))
+    flex-direction row
+
+.karma_view_post-body
+  @media screen and (max-width var(--breakpoint_sm))
+    display none
+
+.karma_view_longread-header,
+.karma_view_shortread-header,
+.karma_view_shortread-control-bar
+  flex-direction column
+  margin-right 1.50rem
+
+.karma_view_post-body,
+.karma_view_longread-header,
+.karma_view_shortread-header,
+.karma_view_shortread-control-bar,
+.karma_view_post-control-bar
+  .karma__svg-up, .karma__svg-down
+    margin 0
+    padding 0
+    width 1.90rem
+    height 1.00rem
+
+.karma__svg-path
+  fill var(--color-middle-grey)
+  transition fill var(--transition-time_slow) linear
+
+.karma__button-up
+  margin-bottom 0.70rem
+  @media screen and (max-width var(--breakpoint_sm))
+    margin-right 0.40rem
+    margin-bottom 0
+
+.karma_view_longread-header,
+.karma_view_shortread-header,
+.karma_view_shortread-control-bar
+  .karma__button-up
+    margin-right 0
+    margin-bottom 0.70rem
+
+.karma_view_post-body,
+.karma_view_longread-header,
+.karma_view_shortread-header,
+.karma_view_shortread-control-bar,
+.karma_view_post-control-bar
+  .karma__button-up
+    &:hover:not(:focus) .karma__svg-up-path
+      fill var(--success-color-primary)
+      @media (hover none)
+        fill var(--color-middle-grey)
+      @supports (selector:focus-visible)
+        fill var(--color-middle-grey)
+
+    &:active .karma__svg-up-path
+      fill var(--success-color-primary)
+      transition fill var(--transition-time_slow) ease-out
+      @supports (selector:focus-visible)
+        fill var(--color-middle-grey)
+
+    &:hover:not(:focus-visible) .karma__svg-up-path
+      @supports (selector:focus-visible)
+        @media (hover hover)
+          fill var(--success-color-primary)
+
+    &:active:not(:focus-visible) .karma__svg-up-path
+      @supports (selector:focus-visible)
+        fill var(--success-color-primary)
+        transition fill var(--transition-time_slow) ease-out
+
+.karma_view_post-body,
+.karma_view_longread-header,
+.karma_view_shortread-header,
+.karma_view_shortread-control-bar,
+.karma_view_post-control-bar
+  .karma__button-down
+    &:hover:not(:focus) .karma__svg-down-path
+      fill var(--warning-color-primary)
+      @media (hover none)
+        fill var(--color-middle-grey)
+      @supports (selector:focus-visible)
+        fill var(--color-middle-grey)
+
+    &:active .karma__svg-down-path
+      fill var(--warning-color-primary)
+      transition fill var(--transition-time_slow) ease-out
+      @supports (selector:focus-visible)
+        fill var(--color-middle-grey)
+
+    &:hover:not(:focus-visible) .karma__svg-down-path
+      @supports (selector:focus-visible)
+        @media (hover hover)
+          fill var( --warning-color-primary)
+
+    &:active:not(:focus-visible) .karma__svg-down-path
+      @supports (selector:focus-visible)
+        fill var(--warning-color-primary)
+        transition fill var(--transition-time_slow) ease-out
+
+.karma__counter
+  margin-bottom 0.70rem
+  @media screen and (max-width var(--breakpoint_sm))
+    margin-right 0.40rem
+    margin-bottom 0
+
+.karma_view_longread-header,
+.karma_view_shortread-header,
+.karma_view_shortread-control-bar
+  .karma__counter
+    margin-right 0
+    margin-bottom 0.70rem

@@ -1,0 +1,56 @@
+.control__button
+  position relative
+  display inline-flex
+  align-items center
+  margin 0
+  padding 0
+  outline none
+  border none
+  font-size 0
+  text-decoration none
+  background none
+  cursor pointer
+  @media (hover none)
+    cursor none
+
+  &::after
+    content ''
+    position absolute
+    top -10px
+    right -10px
+    bottom -10px
+    left -10px
+
+  &:focus
+    outline 2px solid var(--color-hover-primary)
+    outline-offset 1px
+    @media (hover none)
+      outline none
+    @supports (selector:focus-visible)
+      outline none
+
+  &:hover:not(:focus)
+    outline none
+    @media (hover none)
+      outline none
+    @supports (selector:focus-visible)
+      outline none
+
+  &:active
+    outline none
+    @supports (selector:focus-visible)
+      outline none
+
+  &:focus-visible
+    @supports (selector:focus-visible)
+      outline 2px solid var(--color-hover-primary)
+      outline-offset 1px
+
+  &:hover:not(:focus-visible)
+    @supports (selector:focus-visible)
+      @media (hover hover)
+        outline none
+
+  &:active:not(:focus-visible)
+    @supports (selector:focus-visible)
+      outline none

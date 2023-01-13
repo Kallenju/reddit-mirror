@@ -1,0 +1,16 @@
+.control-bar
+  display grid
+  justify-items center
+  align-items center
+  grid-template-columns repeat(6, min-content)
+  grid-template-rows auto
+  gap 2.50rem
+  margin 0
+  padding 1.00rem
+  padding-left 2.00rem
+  flex-grow 1
+  @media screen and (max-width var(--breakpoint_xs))
+    grid-template-columns repeat(6, 1fr)
+    gap 1.00rem
+    width 100%
+    padding-left 0

@@ -1,0 +1,13 @@
+.control-bar
+  display grid
+  align-self flex-start
+  grid-template-columns repeat(5, min-content)
+  grid-template-rows auto
+  gap 1.25rem 2.50rem
+  margin 0
+  padding 0
+  margin-bottom 3.50rem
+  @media screen and (max-width var(--breakpoint_xs))
+    grid-template-columns repeat(1, min-content)
+    gap 2.50rem
+    width 100%

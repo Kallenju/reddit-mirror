@@ -1,0 +1,310 @@
+.account
+  display flex
+  flex-direction row
+  justify-content space-between
+  align-items center
+  margin 0
+  margin-right 0
+  padding 0
+  outline none
+  max-width 20.00rem
+  font-size 0
+  text-decoration none
+  cursor pointer
+  @media (hover none)
+    cursor none
+  @media screen and (max-width var(--breakpoint_md))
+    max-width 13.00rem
+
+  &:focus
+    outline 2px solid var(--color-focus-primary)
+    outline-offset 2px
+    @media (hover none)
+      outline none
+    @supports (selector:focus-visible)
+      outline none
+
+  &:focus-visible
+    @supports (selector:focus-visible)
+      outline 2px solid var(--color-focus-primary)
+      outline-offset 2px
+
+.account_view_personal-header,
+.account_view_post-header
+  @media screen and (max-width var(--breakpoint_sm))
+    order -1000
+    margin-right 1.40rem
+
+.account_view_comment-header
+  margin-right 0.50rem
+
+.account_view_longread-header,
+.account_view_shortread-header
+  margin-right 0.50rem
+
+.account_view_shortread-header,  margin-right 1.50rem
+  @media screen and (max-width var(--breakpoint_xs))
+    margin-right 0
+    margin-bottom 0.70rem
+
+.account__bio-image-container,
+.account__anon-container
+  position relative
+  margin 0
+  padding 0
+  font-size 0
+  flex-shrink 0
+
+.account_view_personal-header
+  .account__bio-image-container,
+  .account__anon-container
+    margin-right 1.40rem
+    width 5.00rem
+    height 5.00rem
+    @media screen and (max-width var(--breakpoint_sm))
+      margin-right 0
+
+.account_view_post-header,
+.account_view_longread-header,
+.account_view_shortread-header,
+.account_view_comment-header
+  .account__bio-image-container,
+  .account__anon-container
+    margin-right 0.70rem
+    width 2.00rem
+    height 2.00rem
+
+.account__bio-image
+  border none
+  border-radius 50%
+  max-width 100%
+  max-height 100%
+  width 100%
+  height 100%
+  object-fit cover
+  object-position center
+
+.account__anon-svg
+  padding 0
+  margin 0
+  max-width 100%
+  max-height 100%
+  width 100%
+  height 100%
+
+.account__anon-svg-path
+  fill var(--background-color-secondary)
+  transition fill var(--transition-time_slow) linear
+
+.account_view_personal-header
+  .account__bio-image-container::after
+    content ''
+    position absolute
+    top -5px
+    left -5px
+    border 1px solid var(--color-focus-primary)
+    border-radius 50%
+    width calc(100% + 10px)
+    height calc(100% + 10px)
+    opacity 0
+    transition opacity var(--transition-time_slow) linear
+
+  &:hover:not(:focus) .account__bio-image-container::after
+    opacity 1
+    @media (hover none)
+      opacity 0
+    @supports (selector:focus-visible)
+      opacity 0
+
+  &:active .account__bio-image-container::after
+    opacity 1
+    transition opacity var(--transition-time_fast) ease-out
+    @supports (selector:focus-visible)
+      opacity 0
+
+  &:hover:not(:focus-visible) .account__bio-image-container::after
+    @supports (selector:focus-visible)
+      @media (hover hover)
+        opacity 1
+
+  &:active:not(:focus-visible) .account__bio-image-container::after
+    @supports (selector:focus-visible)
+      opacity 1
+      transition opacity var(--transition-time_fast) ease-out
+
+.account_view_personal-header
+    &:hover:not(:focus) .account__anon-svg-path
+      fill var(--text-color-primary)
+      @media (hover none)
+        fill var(--background-color-secondary)
+      @supports (selector:focus-visible)
+        fill var(--background-color-secondary)
+
+    &:active .account__anon-svg-path
+      fill var(--text-color-primary)
+      transition fill var(--transition-time_fast) ease-out
+      @supports (selector:focus-visible)
+        fill var(--background-color-secondary)
+
+    &:hover:not(:focus-visible) .account__anon-svg-path
+      @supports (selector:focus-visible)
+        @media (hover: hover)
+          fill var(--text-color-primary)
+
+    &:active:not(:focus-visible) .account__anon-svg-path
+      @supports (selector:focus-visible)
+        fill var(--text-color-primary)
+        transition fill var(--transition-time_fast) ease-out
+
+.account__name
+  overflow hidden
+  margin 0
+  outline none
+  font-family var(--font-family-primary), sans-serif
+  line-height var(--line-height_sm)
+  text-overflow ellipsis
+  white-space nowrap
+  transition color var(--transition-time_slow) linear
+
+.account_view_personal-header
+  .account__name
+    font-size var(--font-size_md)
+    font-weight var(--font-weight_sm)
+    color var(--text-color-primary)
+    @media screen and (max-width var(--breakpoint_md))
+      font-size var(--font-size_sm)
+    @media screen and (max-width var(--breakpoint_sm))
+      display none
+
+.account_view_personal-header
+  &:hover:not(:focus) .account__name
+    outline none
+    color var(--color-hover-primary)
+    @media (hover: none)
+      outline none
+      color var(--text-color-primary)
+    @supports (selector:focus-visible)
+      outline none
+      color var(--text-color-primary)
+
+  &:active .account__name
+    color var(--color-hover-primary)
+    transition color var(--transition-time_fast) ease-out
+    @supports (selector:focus-visible)
+      color var(--text-color-primary)
+
+  &:hover:not(:focus-visible) .account__name
+    @supports (selector:focus-visible)
+      @media (hover hover)
+        color var(--color-hover-primary)
+
+  &:active:not(:focus-visible) .account__name
+    @supports (selector:focus-visible)
+      color var(--color-hover-primary)
+      transition color var(--transition-time_fast) ease-out
+
+.account__anon-name
+  overflow hidden
+  margin 0
+  outline none
+  font-family var(--font-family-primary), sans-serif
+  font-size var(--font-size_sm)
+  font-weight var(--font-weight_xs)
+  line-height var(--line-height_sm)
+  color var(--text-color-secondary)
+  text-overflow ellipsis
+  white-space nowrap
+  transition color var(--transition-time_slow) linear
+  @media screen and (max-width var(--breakpoint_sm))
+    margin-right 0.60rem
+    font-size var(--font-size_xxs)
+
+.account_view_personal-header
+  .account__anon-name
+    font-size var(--font-size_md)
+    font-weight var(--font-weight_sm)
+    color var(--text-color-secondary)
+    @media screen and (max-width var(--breakpoint_md))
+      font-size var(--font-size_sm)
+    @media screen and (max-width var(--breakpoint_sm))
+      display none
+
+  &:hover:not(:focus) .account__anon-name
+    outline none
+    color var(--text-color-primary)
+    @media (hover none)
+      outline none
+      color var(--text-color-secondary)
+    @supports (selector:focus-visible)
+      outline none
+      color var(--text-color-secondary)
+
+  &:active .account__anon-name
+    color var(--text-color-primary)
+    transition color var(--transition-time_fast) ease-out
+    @supports (selector:focus-visible)
+      color var(--text-color-secondary)
+
+  &:hover:not(:focus-visible) .account__anon-name
+    @supports (selector:focus-visible)
+      @media (hover: hover)
+        color var(--text-color-primary)
+
+  &:active:not(:focus-visible) .account__anon-name
+    @supports (selector:focus-visible)
+      color var(--text-color-primary)
+      transition color var(--transition-time_fast) ease-out
+
+.account_view_post-header,
+.account_view_longread-header,
+.account_view_shortread-header,
+.account_view_comment-header
+  .account__name
+    position relative
+    font-size var(--font-size_sm)
+    font-weight var(--font-weight_xs)
+    color var(--brend-color)
+    @media screen and (max-width var(--breakpoint_sm))
+      margin-right 0.60rem
+      font-size var(--font-size_xxs)
+
+    &::after
+      content ''
+      position absolute
+      left 0
+      bottom 0
+      width 100%
+      height 1px
+      transform scaleX(0)
+      transition transform var(--transition-time_slow) ease-out
+
+.account_view_post-header,
+.account_view_longread-header,
+.account_view_shortread-header,
+.account_view_comment-header
+  &:hover:not(:focus) .account__name::after
+    background-color var(--color-hover-primary)
+    transform scaleX(1)
+    @media (hover none)
+      transform scaleX(0)
+    @supports (selector:focus-visible)
+      transform scaleX(0)
+
+  &:active .account__name::after
+    background-color var(--color-active-primary)
+    transform scaleX(1)
+    transition background-color var(--transition-time_fast) ease-out, transform var(--transition-time_fast) ease-out
+    @supports (selector:focus-visible)
+      transform scaleX(0)
+
+  &:hover:not(:focus-visible) .account__name::after
+    @supports (selector:focus-visible)
+      @media (hover hover)
+        background-color var(--color-hover-primary)
+        transform scaleX(1)
+
+  &:active:not(:focus-visible) .account__name::after
+    @supports (selector:focus-visible)
+      background-color var(--color-active-primary)
+      transform scaleX(1)
+      transition background-color var(--transition-time_fast) ease-out, transform var(--transition-time_fast) ease-out

@@ -1,0 +1,125 @@
+.menu
+  position relative
+  margin-right 2.40rem
+  @media screen and (max-width var(--breakpoint_xs))
+    position absolute
+    top 1.70rem
+    right 2.00rem
+    margin-right 0
+    transform translate(0, 0) rotate(0deg)
+
+.menu__dropdown
+  position absolute
+  bottom -2.00rem
+  left 50%
+  z-index 1000
+  border-radius 0.30rem
+  background var(--color-white)
+  box-shadow 0 0 2.00rem 0 rgba(0, 0, 0, 0.15)
+  transform translate(-50%, 100%)
+  @media screen and (max-width var(--breakpoint_xs))
+    bottom -1.00rem
+    left 100%
+    transform translate(-100%, 100%)
+
+.menu__dropdown-close-button
+  display none
+  margin 0
+  padding 1.10rem 0
+  outline none
+  border none
+  width 100%
+  height 100%
+  font-family var(--font-family-primary), sans-serif
+  font-size var(--font-size_sm)
+  font-weight var(--font-weight_xs)
+  line-height var(--line-height_sm)
+  color var(--text-color-secondary)
+  text-decoration none
+  background var(--background-color-secondary)
+  transition color var(--transition-time_slow) linear
+  cursor pointer
+  @media (hover none)
+    cursor none
+  @media screen and (max-width var(--breakpoint_md))
+    display block
+  @media screen and (max-width var(--breakpoint_xs))
+    font-size var(--font-size_xs)
+
+  &:focus
+    outline 2px solid var(--color-hover-primary)
+    @media (hover: none)
+      outline none
+    @supports (selector:focus-visible)
+      outline none
+
+  &:hover:not(:focus)
+    outline none
+    color var(--text-color-primary)
+    @media (hover: none)
+      outline none
+    @supports (selector:focus-visible)
+      outline none
+
+  &:active
+    outline none
+    color var(--text-color-primary)
+    transition color var(--transition-time_fast) ease-out
+    @supports (selector:focus-visible)
+      outline none
+
+  &:focus-visible
+    @supports (selector:focus-visible)
+      outline 2px solid var(--color-hover-primary)
+
+  &:hover:not(:focus-visible)
+    @supports (selector:focus-visible)
+      @media (hover hover)
+        outline none
+        color var(--text-color-primary)
+
+  &:active:not(:focus-visible)
+    @supports (selector:focus-visible)
+      outline none
+      color var(--text-color-primary)
+      transition color var(--transition-time_fast) ease-out
+
+.menu__controls-list
+  margin 0
+  padding 1.00rem 0
+  width 100%
+  height 100%
+  font-size 0
+  list-style none
+  @media screen and (max-width var(--breakpoint_md))
+    padding 0
+
+.menu__controls-list_screen_desktop
+  display block
+  @media screen and (max-width var(--breakpoint_xs))
+    display none
+
+.menu__controls-list_screen_mobile
+  display none
+  @media screen and (max-width var(--breakpoint_xs))
+    display block
+
+.menu__controls-list-item
+  position relative
+  margin 0
+  padding 0
+  font-size 0
+
+  &::after
+    position absolute
+    bottom 0
+    left 2.00rem
+    content ''
+    display block
+    width calc(100% - 4.00rem)
+    height 0.5px
+    background var(--color-light-grey)
+
+  &:last-of-type
+    &::after
+      display none

@@ -1,0 +1,19 @@
+#modal-root
+  position absolute
+  top 0
+  left 50%
+  z-index 1500
+  padding 0
+  max-width 96.00rem
+  width 100%
+  height auto
+  transform translate(-50%, 0)
+  @media screen and (max-width var(--breakpoint_md))
+    padding 0 var(--container-margins_md)
+    max-width calc(96.00rem + 2 * var(--container-margins_md))
+  @media screen and (max-width var(--breakpoint_sm))
+    padding 0 var(--container-margins_sm)
+    max-width calc(96.00rem + 2 * var(--container-margins_sm))
+  @media screen and (max-width var(--breakpoint_xs))
+    padding 0 var(--container-margins_xs)
+    max-width calc(96.00rem + 2 * var(--container-margins_xs))

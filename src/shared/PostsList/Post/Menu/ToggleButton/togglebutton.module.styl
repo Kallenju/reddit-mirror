@@ -1,0 +1,109 @@
+.toggle-button
+  position relative
+  z-index 500
+  display inline-flex
+  align-items center
+  padding 0
+  outline none
+  border none
+  font-size 0
+  text-decoration none
+  background none
+  cursor pointer
+  transform rotate(90deg)
+  @media (hover: none)
+    cursor none
+  @media screen and (max-width var(--breakpoint_xs))
+    transform rotate(0deg)
+
+  &:focus
+    outline 2px solid var(--color-hover-primary)
+    outline-offset 1px
+    @media (hover none)
+      outline none
+    @supports (selector:focus-visible)
+      outline none
+
+  &:hover:not(:focus)
+    outline none
+    @media (hover none)
+      outline none
+    @supports (selector:focus-visible)
+      outline none
+
+  &:active
+    outline none
+    @supports (selector:focus-visible)
+      outline none
+
+  &:focus-visible
+    @supports (selector:focus-visible)
+      outline 2px solid var(--color-hover-primary)
+      outline-offset 1px
+
+  &:hover:not(:focus-visible)
+    @supports (selector:focus-visible)
+      @media (hover hover)
+        outline none
+
+  &:active:not(:focus-visible)
+    @supports (selector:focus-visible)
+      outline none
+
+.toggle-button__svg
+  width 3.10rem
+  height 3.10rem
+
+.toggle-button__svg-back-circle
+  fill-opacity 0
+  transition fill-opacity var(--transition-time_slow) linear
+
+.toggle-button
+  &:hover:not(:focus) .toggle-button__svg-back-circle
+    fill-opacity 0.10
+    @media (hover none)
+      fill-opacity 0
+    @supports (selector:focus-visible)
+      fill-opacity 0
+
+  &:active .toggle-button__svg-back-circle
+    fill-opacity 0.10
+    transition fill-opacity var(--transition-time_slow) ease-out
+    @supports (selector:focus-visible)
+      fill-opacity 0
+
+  &:hover:not(:focus-visible) .toggle-button__svg-back-circle
+    @supports (selector:focus-visible)
+      @media (hover hover)
+        fill-opacity 0.10
+
+  &:active:not(:focus-visible) .toggle-button__svg-back-circle
+    @supports (selector:focus-visible)
+      fill-opacity 0.10
+      transition fill-opacity var(--transition-time_slow) ease-out
+
+.toggle-button_activejs
+  .toggle-button__svg-back-circle
+    fill-opacity 0.10
+
+  &:hover:not(:focus) .toggle-button__svg-back-circle
+    fill-opacity 0.10
+
+  &:active .toggle-button__svg-back-circle
+    fill-opacity 0.10
+    transition fill-opacity var(--transition-time_slow) ease-out
+
+  &:focus-visible .toggle-button__svg-back-circle
+    @supports (selector:focus-visible)
+      fill-opacity 0.10
+
+  &:hover:not(:focus-visible) .toggle-button__svg-back-circle
+    @supports (selector:focus-visible)
+      @media (hover hover)
+        fill-opacity 0.10
+
+  &:active:not(:focus-visible) .toggle-button__svg-back-circle
+    @supports (selector:focus-visible)
+      fill-opacity 0.10
+      transition fill-opacity var(--transition-time_slow) ease-out
+

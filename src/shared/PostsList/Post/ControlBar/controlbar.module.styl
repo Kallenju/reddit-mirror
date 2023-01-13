@@ -1,0 +1,27 @@
+.control-bar
+  display none
+  @media screen and (max-width var(--breakpoint_xs))
+    display flex
+    flex-direction row
+    justify-content space-between
+    align-items center
+    margin 0
+    padding 0
+    padding 1.00rem 2.00rem
+    width 100%
+
+.control-bar__wrapper
+  display none
+  margin 0
+  padding 0
+  @media screen and (max-width var(--breakpoint_xs))
+    display flex
+    flex-direction row
+    justify-content space-between
+    align-items center
+
+  & > *
+    margin-right 1.50rem
+
+  & > *:last-child
+    margin-right 0

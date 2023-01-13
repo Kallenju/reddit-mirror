@@ -1,0 +1,80 @@
+.message
+  display flex
+  flex-direction row
+  justify-content space-between
+  align-items center
+  margin 0
+  margin-right 5.00rem
+  padding 0
+  outline none
+  font-size 0
+  text-decoration none
+  cursor pointer
+  @media (hover: none)
+    cursor none
+  @media screen and (max-width var(--breakpoint_md))
+    margin-right 3.00rem
+  @media screen and (max-width var(--breakpoint_sm))
+    margin-right 0
+
+  &:focus
+    outline 2px solid var(--color-focus-primary)
+    outline-offset 2px
+    @media (hover: none)
+      outline none
+    @supports (selector:focus-visible)
+      outline none
+
+  &:focus-visible
+    @supports (selector:focus-visible)
+      outline 2px solid var(--color-focus-primary)
+      outline-offset 2px
+
+.message__counter
+  display block
+  margin 0
+  margin-right 0.70rem
+  padding 0.30rem 0.70rem
+  border none
+  border-radius 50%
+  font-family var(--font-family-primary), sans-serif
+  font-size var(--font-size_sm)
+  font-weight var(--font-weight_sm)
+  line-height var(--line-height_sm)
+  font-style normal
+  color var(--color-white)
+  background var(--color-hover-primary)
+
+.message__icon
+  margin 0
+  padding 0
+  width 2.00rem
+  height 1.60rem
+
+.message__icon-path
+  fill var(--color-light-grey)
+  transition fill var(--transition-time_slow) linear
+
+.message
+  &:hover:not(:focus) .message__icon-path
+    fill var(--color-hover-primary)
+    @media (hover none)
+      fill var(--color-light-grey)
+    @supports (selector:focus-visible)
+      fill var(--color-light-grey)
+
+  &:active .message__icon-path
+    fill var(--color-hover-primary)
+    transition fill var(--transition-time_fast) ease-out
+    @supports (selector:focus-visible)
+      fill var(--color-light-grey)
+
+  &:hover:not(:focus-visible) .message__icon-path
+    @supports (selector:focus-visible)
+      @media (hover: hover)
+        fill var(--color-hover-primary)
+
+  &:active:not(:focus-visible) .message__icon-path
+    @supports (selector:focus-visible)
+      fill var(--color-hover-primary)
+      transition fill var(--transition-time_slow) ease-out

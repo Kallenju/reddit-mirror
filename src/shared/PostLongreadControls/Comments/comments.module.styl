@@ -1,0 +1,38 @@
+.comments
+  display flex
+  flex-direction row
+  justify-content space-between
+  align-items center
+  outline none
+
+.comments_view_post-menu
+  @media screen and (max-width var(--breakpoint_sm))
+    display none
+
+.comments__svg
+  margin 0
+  padding 0
+
+.comments_view_post-control-bar
+  .comments__svg
+    margin-right 0.55rem
+    width 1.50rem
+    height 1.50rem
+
+.comments_view_comment-control-bar
+  .comments__svg
+    margin-right 0.50rem
+    width 1.50rem
+    height 1.50rem
+
+.comments_view_post-menu,
+.comments_view_longread-control-bar,
+.comments_view_shortread-control-bar
+  .comments__svg
+    margin-right 0.50rem
+    width 1.20rem
+    height 1.20rem
+
+.comments__counter
+  color var(--text-color-secondary)
+  font-weight var(--font-weight_xs)

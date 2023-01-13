@@ -1,0 +1,176 @@
+.posts-list
+  display flex
+  flex-direction column
+  justify-content flex-start
+  align-items flex-start
+  margin 0
+  padding 4.00rem 0
+  border-radius 0.70rem
+  width 100%
+  background var(--color-white)
+  @media screen and (max-width var(--breakpoint_xs))
+    padding 0
+    background none
+
+.posts-list__title
+  margin 0
+  padding 0
+  width 100%
+  text-align center
+  font-family var(--font-family-secondary), sans-serif
+  font-size var(--font-size_md)
+  font-weight var(--font-weight_lg)
+  line-height var(--line-height_md)
+  font-style normal
+  color var(--text-color-primary)
+
+.posts-list__title_hidden
+  position absolute
+  overflow hidden
+  padding 0
+  border none
+  width 1px
+  height 1px
+  margin -1px
+  clip-path inset(100%)
+  clip rect(0 0 0 0)
+
+.posts-list__list
+  margin 0
+  margin-bottom 2.00rem
+  padding 0
+  font-size 0
+  list-style none
+
+  &:last-child
+    margin-bottom 0
+
+.posts-list__item
+  margin 0
+  margin-bottom 4.00rem
+  padding 0 var(--container-margins)
+  outline none
+  width 100%
+  font-size 0
+  @media screen and (max-width var(--breakpoint_md))
+    padding 0 var(--container-margins_md)
+  @media screen and (max-width var(--breakpoint_md))
+    padding 0 var(--container-margins_sm)
+  @media screen and (max-width var(--breakpoint_xs))
+    margin-bottom 2.00rem
+    padding 0
+
+  &:last-child
+    margin-bottom 0
+
+  &:focus
+    outline 1px solid #d9d9d9
+    @media (hover none)
+      outline none
+    @supports (selector:focus-visible)
+      outline none
+
+  &:hover:not(:focus)
+    outline 1px solid #d9d9d9
+    @media (hover none)
+      outline none
+    @supports (selector:focus-visible)
+      outline none
+
+  &:active
+    outline 1px solid #d9d9d9
+    @supports (selector:focus-visible)
+      outline none
+
+  &:focus-visible
+    @supports (selector:focus-visible)
+      outline 1px solid #d9d9d9
+
+  &:hover:not(:focus-visible)
+    @supports (selector:focus-visible)
+      @media (hover hover)
+        outline 1px solid #d9d9d9
+
+  &:active:not(:focus-visible)
+    @supports (selector:focus-visible)
+      outline 1px solid #d9d9d9
+
+.posts-list__download-flag
+  margin 0
+  padding 0
+  width 100%
+  font-size 0
+
+.posts-list__message-to-user
+  align-self center
+  margin 0
+  padding 0
+  width 100%
+  text-align center
+  font-family var(--font-family-secondary), sans-serif
+  font-size var(--font-size_md)
+  font-weight var(--font-weight_lg)
+  line-height var(--line-height_md)
+  font-style normal
+  color var(--text-color-primary)
+
+.posts-list__load-button
+  position relative
+  align-self center
+  display inline-flex
+  justify-content center
+  align-items center
+  padding 1.70rem 5.00rem
+  margin 0
+  border none
+  outline none
+  text-align center
+  font-family var(--font-family-primary), sans-serif
+  font-size var(--font-size_sm)
+  font-weight var(--font-weight_sm)
+  line-height var(--line-height_sm)
+  font-style normal
+  text-decoration none
+  color var(--color-white)
+  background-color var(--background-color-primary)
+  cursor pointer
+  transition color var(--transition-time_slow) linear, background-color var(--transition-time_slow) linear
+  @media screen and (max-width var(--breakpoint_xs))
+    width 100%
+  @media (hover: none)
+    cursor none
+
+  &:focus
+    outline 1px solid var(--color-black)
+    @media (hover none)
+      outline none
+    @supports (selector:focus-visible)
+      outline none
+
+  &:hover:not(:focus)
+    background-color var(--color-active-primary)
+    @media (hover none)
+      background-color var(--background-color-primary)
+    @supports (selector:focus-visible)
+      background-color var(--background-color-primary)
+
+  &:active
+    background-color var(--color-active-primary)
+    transition color var(--transition-time_fast) ease-out, background-color var(--transition-time_fast) ease-out
+    @supports (selector:focus-visible)
+      background-color: var(--background-color-primary)
+
+  &:focus-visible
+    @supports (selector:focus-visible)
+      outline 1px solid var(--color-black)
+
+  &:hover:not(:focus-visible)
+    @supports (selector:focus-visible)
+      @media (hover hover)
+        background-color var(--color-active-primary)
+
+  &:active:not(:focus-visible)
+    @supports (selector:focus-visible)
+      background-color var(--color-active-primary)
+      transition: color var(--transition-time_fast) ease-out, background-color var(--transition-time_fast) ease-out
+

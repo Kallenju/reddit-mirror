@@ -1,0 +1,167 @@
+.comment-form
+  display flex
+  flex-direction column
+  align-items flex-start
+  justify-content flex-start
+  margin 0
+  padding 0
+  width 100%
+  background var(--color-white)
+
+.comment-form_view_comment
+  margin-bottom 5.00rem
+  padding-bottom 4.00rem
+  border-bottom 1px solid var(--color-light-grey)
+
+.comment-form_view_reply
+  margin 0
+  padding 0
+  margin-bottom 4.00rem
+
+.comment-form__textarea
+  overflow hidden
+  padding 1.60rem
+  border 1px solid var(--color-light-grey)
+  outline none
+  resize none
+  margin-bottom 0.10rem
+  width 100%
+  height 9.00rem
+  font-family var(--font-family-primary), sans-serif
+  font-size var(--font-size_md)
+  font-weight var(--font-weight_xs)
+  line-height var(--line-height_sm)
+  font-style normal
+  color var(--form-text-color-primary)
+  caret-color var(--form-text-color-primary)
+  transition width var(--transition-time_slow) linear, color var(--transition-time_slow) linear, background-color var(--transition-time_slow) linear
+
+  &:focus
+    outline 1px solid var(--color-hover-primary)
+    @media (hover none)
+      outline none
+    @supports (selector:focus-visible)
+      outline none
+
+    &::placeholder
+      color transparent
+
+  &:focus-visible
+    @supports (selector:focus-visible)
+      outline 1px solid var(--color-hover-primary)
+
+    &::placeholder
+      color transparent
+
+  &:hover
+    outline 1px solid var(--color-hover-primary)
+    @media (hover none)
+      outline none
+
+.comment-form__textarea-message
+  margin 0
+  margin-top 1.00rem
+  padding 0
+  font-family var(--font-family-secondary), sans-serif
+  font-size var(--font-size_md)
+  font-weight var(--font-weight_sm)
+  line-height var(--line-height_sm)
+  font-style normal
+  color var(--warning-color-primary)
+
+.comment-form__label
+  margin 0
+  padding 0
+  font-family var(--font-family-secondary), sans-serif
+  font-size var(--font-size_md)
+  font-weight var(--font-weight_xs)
+  line-height var(--line-height_sm)
+  font-style normal
+  color var(--text-color-primary)
+
+.comment-form__label_hidden
+  position absolute
+  overflow hidden
+  padding 0
+  border none
+  width 1px
+  height 1px
+  margin -1px
+  clip-path inset(100%)
+  clip rect(0 0 0 0)
+
+.comment-form__controls
+  display flex
+  flex-wrap wrap
+  flex-direction row
+  justify-content space-between
+  align-items center
+  margin 0
+  padding 0
+  width 100%
+  background #e5e5e5
+  @media screen and (max-width var(--breakpoint_xs))
+    flex-direction column
+
+.comment-form__submit-button
+  position relative
+  display inline-flex
+  justify-content center
+  align-items center
+  padding 1.70rem 5.00rem
+  margin 0
+  flex-grow 1
+  flex-shrink 1
+  flex-basis 0
+  border none
+  outline none
+  text-align center
+  font-family var(--font-family-primary), sans-serif
+  font-size var(--font-size_sm)
+  font-weight var(--font-weight_sm)
+  line-height var(--line-height_sm)
+  font-style normal
+  text-decoration none
+  color var(--color-white)
+  background-color var(--background-color-primary)
+  cursor pointer
+  transition color var(--transition-time_slow) linear, background-color var(--transition-time_slow) linear
+  @media screen and (max-width var(--breakpoint_xs))
+    width 100%
+  @media (hover: none)
+    cursor none
+
+  &:focus
+    outline 1px solid var(--color-black)
+    @media (hover none)
+      outline none
+    @supports (selector:focus-visible)
+      outline none
+
+  &:hover:not(:focus)
+    background-color var(--color-active-primary)
+    @media (hover none)
+      background-color var(--background-color-primary)
+    @supports (selector:focus-visible)
+      background-color var(--background-color-primary)
+
+  &:active
+    background-color var(--color-active-primary)
+    transition color var(--transition-time_fast) ease-out, background-color var(--transition-time_fast) ease-out
+    @supports (selector:focus-visible)
+      background-color: var(--background-color-primary)
+
+  &:focus-visible
+    @supports (selector:focus-visible)
+      outline 1px solid var(--color-black)
+
+  &:hover:not(:focus-visible)
+    @supports (selector:focus-visible)
+      @media (hover hover)
+        background-color var(--color-active-primary)
+
+  &:active:not(:focus-visible)
+    @supports (selector:focus-visible)
+      background-color var(--color-active-primary)
+      transition: color var(--transition-time_fast) ease-out, background-color var(--transition-time_fast) ease-out
+
