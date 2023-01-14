@@ -8,7 +8,7 @@ I'm also trying to use the best practices in ReactJS development and the newest 
 
 ## How to run
 
-1. Clone the repo
+1. Clone the repo (use main branch)
 2. Run `npm ci` to install dependencies
 3. Run `npm run build` to build the project
 4. Run `npm run start` to start the server
