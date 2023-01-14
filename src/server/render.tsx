@@ -1,17 +1,15 @@
 import path from 'path';
-import url from 'url';
 import dotenv from 'dotenv';
 
-const __dirname: string = path.dirname(url.fileURLToPath(import.meta.url));
-
 dotenv.config({
-  path: path.resolve(__dirname, `../.${process.env.NODE_ENV}.env`),
+  path: path.resolve(process.cwd(), `.${process.env.NODE_ENV}.env`),
 });
 
 const { NODE_ENV, SSR_ABORT_DELAY } = process.env;
 
 import fs from 'fs';
 import { Response } from 'express';
+import crypto from 'crypto';
 import React, { StrictMode } from 'react';
 import { renderToPipeableStream } from 'react-dom/server';
 import AssetsMap from '../interfaces/AssetsMap';
@@ -21,16 +19,19 @@ import { RootState, store } from '../store';
 import App from '../App';
 
 const isCrawler = false;
-const pathToAssetsMap = path.resolve(
-  __dirname,
-  NODE_ENV === 'development' ? '../../dist/assetsMap.json' : '../assetsMap.json'
-);
+const pathToAssetsMap = path.resolve(process.cwd(), 'dist/assetsMap.json');
+const __ASSETS_MAP__: AssetsMap = JSON.parse(
+  fs.readFileSync(pathToAssetsMap, 'utf8')
+).main;
+const __PRELOADED_STATE__: RootState = store.getState();
+const toBootstrapScriptContent = `window.__ASSETS_MAP__ = ${JSON.stringify(
+  __ASSETS_MAP__
+).replace(/</g, '\\u003c')}; window.__PRELOADED_STATE__ = ${JSON.stringify(
+  __PRELOADED_STATE__
+).replace(/</g, '\\u003c')};`;
 
 export default function render(url: string, response: Response): void {
-  const __ASSETS_MAP__: AssetsMap = JSON.parse(
-    fs.readFileSync(pathToAssetsMap, 'utf8')
-  ).main;
-  const __PRELOADED_STATE__: RootState = store.getState();
+  const nonce = crypto.randomBytes(16).toString('base64');
 
   let didError = false;
 
@@ -44,16 +45,19 @@ export default function render(url: string, response: Response): void {
         </Provider>
       </StrictMode>,
       {
-        bootstrapScriptContent: `window.__ASSETS_MAP__ = ${JSON.stringify(
-          __ASSETS_MAP__
-        )}; window.__PRELOADED_STATE__ = ${JSON.stringify(
-          __PRELOADED_STATE__
-        ).replace(/</g, '\\u003c')};`,
+        bootstrapScriptContent: toBootstrapScriptContent,
+        nonce,
         bootstrapScripts: [`/static/${__ASSETS_MAP__.js}`],
         onShellReady() {
           if (!isCrawler) {
             response.statusCode = didError ? 500 : 200;
             response.setHeader('content-type', 'text/html');
+            if (NODE_ENV === 'production') {
+              response.setHeader(
+                'Content-Security-Policy',
+                `script-src 'self' 'nonce-${nonce}'`
+              );
+            }
             stream.pipe(response);
           }
         },
@@ -66,6 +70,12 @@ export default function render(url: string, response: Response): void {
           if (isCrawler) {
             response.statusCode = didError ? 500 : 200;
             response.setHeader('content-type', 'text/html');
+            if (NODE_ENV === 'production') {
+              response.setHeader(
+                'Content-Security-Policy',
+                `script-src 'self' 'nonce-${nonce}'`
+              );
+            }
             stream.pipe(response);
           }
         },

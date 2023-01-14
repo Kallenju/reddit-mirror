@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import styles from './postslist.module.styl';
 import { RootState } from '../../store';
 import ReduxMirrorRedditPostsData from '../../interfaces/ReduxMirrorRedditPostsData';
@@ -7,6 +8,7 @@ import MirrorRedditPostData from '../../interfaces/MirrorRedditPostData';
 import { useSelector } from 'react-redux';
 import { useInView } from 'react-intersection-observer';
 import usePostsData from '../../hooks/usePostsData';
+import selectToken from '../../store/selectors/selectToken';
 import selectPosts from '../../store/selectors/selectPosts';
 import GenericList from '../GenericList';
 import Post from './Post';
@@ -22,9 +24,26 @@ interface Item {
 
 export function PostsList({
   subreddit = 'strength_training',
-  api = 'best',
   postsLimit = 10,
 }: PostsListProps): React.ReactElement {
+  const params = useParams();
+  const [api, setApi]: [
+    ReduxFetchPostsThunkArg['api'],
+    React.Dispatch<React.SetStateAction<ReduxFetchPostsThunkArg['api']>>
+  ] = useState<ReduxFetchPostsThunkArg['api']>(
+    (params.api as ReduxFetchPostsThunkArg['api']) || 'best'
+  );
+
+  useEffect(() => {
+    setApi((params.api as ReduxFetchPostsThunkArg['api']) || 'best');
+  }, [api, params]);
+
+  const token: string = useSelector<RootState, string>(selectToken);
+  const postsData: ReduxMirrorRedditPostsData = useSelector<
+    RootState,
+    RootState['posts']
+  >(selectPosts);
+
   const fetchPosts: ({
     abortController,
   }: {
@@ -34,15 +53,24 @@ export function PostsList({
     api,
     postsLimit,
   });
+
+  useEffect((): (() => void) | void => {
+    if (token) {
+      const abortController: AbortController = new AbortController();
+      fetchPosts({
+        abortController,
+      });
+
+      return (): void => {
+        abortController.abort();
+      };
+    }
+  }, [api, fetchPosts, token]);
+
   const [fetchPostsTrigger, setFetchPostsTrigger]: [
     boolean,
     React.Dispatch<React.SetStateAction<boolean>>
   ] = useState<boolean>(false);
-
-  const postsData: ReduxMirrorRedditPostsData = useSelector<
-    RootState,
-    RootState['posts']
-  >(selectPosts);
 
   const [items, setItems]: [
     Array<Item>,
@@ -86,14 +114,14 @@ export function PostsList({
   }, [api, postsData]);
 
   useEffect((): (() => void) | void => {
-    if (fetchPostsTrigger) {
+    if (fetchPostsTrigger && token) {
       const abortController: AbortController = new AbortController();
       fetchPosts({ abortController });
       return (): void => {
         abortController.abort();
       };
     }
-  }, [fetchPostsTrigger, fetchPosts]);
+  }, [fetchPostsTrigger, fetchPosts, token]);
 
   if (!postsData[api] && postsData.state === 'idle') {
     return (
@@ -149,7 +177,8 @@ export function PostsList({
         className={styles['posts-list__download-flag']}
         ref={downloadFlagRef}
       ></span>
-      {items.length &&
+      {!fetchPostsTrigger &&
+        items.length &&
         items.length % (3 * postsLimit) === 0 &&
         postsData.state !== 'pending' &&
         !postsData.end && (

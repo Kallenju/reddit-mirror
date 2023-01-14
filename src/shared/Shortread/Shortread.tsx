@@ -19,8 +19,6 @@ export function Shortread(): React.ReactElement {
   const { id = '1' }: { id?: string } = useParams<{ id?: string }>();
   const navigate = useNavigate();
 
-  console.log('Shortread.tsx: id = ', id);
-
   const refShortread: React.RefObject<HTMLElement> = useRef<HTMLElement>(null);
 
   const [modalRoot]: [HTMLDivElement | null] = useModalRoot();

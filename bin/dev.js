@@ -23,10 +23,7 @@ const hmrServer = express();
 
 const clientCompiler = webpack(webpackClientConfig);
 
-const allowedOrigins = [
-  `${URI}:${PORT}`,
-  `${URI}:${HMR_SERVER_PORT}`,
-];
+const allowedOrigins = [`${URI}:${PORT}`, `${URI}:${HMR_SERVER_PORT}`];
 
 hmrServer.use(
   cors({
@@ -86,6 +83,6 @@ serverCompiler.run((err) => {
   });
 
   console.log(
-    `\n!!!Server!!!\nServer started on port ${URI}:${DEV_SERVER_PORT}\n!!!Server!!!`
+    `\n!!!Server!!!\nServer started on port ${URI}:${PORT}\n!!!Server!!!`
   );
 });

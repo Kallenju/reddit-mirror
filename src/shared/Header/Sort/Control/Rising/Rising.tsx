@@ -1,5 +1,6 @@
 import React from 'react';
 import Icons from '../../../../../Icons';
+import { Link } from 'react-router-dom';
 
 interface RisingProps {
   styles: {
@@ -15,7 +16,7 @@ interface RisingProps {
 
 export function Rising({ styles, view }: RisingProps): React.ReactElement {
   return (
-    <a className={styles['button']} href="#url-sort">
+    <Link className={styles['button']} to="/rising">
       <Icons.Component
         block={Icons.RisingIcons.sort}
         svgClassName={styles['control__svg']}
@@ -29,6 +30,6 @@ export function Rising({ styles, view }: RisingProps): React.ReactElement {
           svgPathClassName={styles['control__svg-arrow-path']}
         />
       )}
-    </a>
+    </Link>
   );
 }

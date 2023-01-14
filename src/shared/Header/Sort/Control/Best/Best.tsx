@@ -1,5 +1,6 @@
 import React from 'react';
 import Icons from '../../../../../Icons';
+import { Link } from 'react-router-dom';
 
 interface BestProps {
   styles: {
@@ -15,7 +16,7 @@ interface BestProps {
 
 export function Best({ styles, view }: BestProps): React.ReactElement {
   return (
-    <a className={styles['button']} href="#url-sort">
+    <Link className={styles['button']} to="/best">
       <Icons.Component
         block={Icons.BestIcons.sort}
         svgClassName={styles['control__svg']}
@@ -29,6 +30,6 @@ export function Best({ styles, view }: BestProps): React.ReactElement {
           svgPathClassName={styles['control__svg-arrow-path']}
         />
       )}
-    </a>
+    </Link>
   );
 }

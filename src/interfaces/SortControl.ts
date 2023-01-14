@@ -3,6 +3,6 @@ type SortControl =
   | 'sort__new'
   | 'sort__top'
   | 'sort__hot'
-  | 'sort__long';
+  | 'sort__rising';
 
 export { type SortControl as default };

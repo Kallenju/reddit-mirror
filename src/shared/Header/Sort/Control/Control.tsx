@@ -5,7 +5,7 @@ import Best from './Best';
 import New from './New';
 import Top from './Top';
 import Hot from './Hot';
-import Long from './Rising';
+import Rising from './Rising';
 
 interface ControlProps {
   As: SortControl;
@@ -46,7 +46,7 @@ export function Control({
       return <Top styles={stylesForControl} view={view} />;
     case 'sort__hot':
       return <Hot styles={stylesForControl} view={view} />;
-    case 'sort__long':
-      return <Long styles={stylesForControl} view={view} />;
+    case 'sort__rising':
+      return <Rising styles={stylesForControl} view={view} />;
   }
 }

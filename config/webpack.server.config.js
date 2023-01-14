@@ -6,12 +6,7 @@ dotenv.config({
   path: path.resolve(__dirname, `../.${process.env.NODE_ENV}.env`),
 });
 
-const {
-  NODE_ENV,
-  PORT,
-  CLIENT_ID,
-  CLIENT_SECRET,
-} = process.env;
+const { NODE_ENV, PORT, CLIENT_ID, CLIENT_SECRET } = process.env;
 
 const webpackNodeExternals = require('webpack-node-externals');
 const webpack = require('webpack');
@@ -93,6 +88,6 @@ module.exports = {
   mode: NODE_ENV === 'development' ? 'development' : 'production',
 
   optimization: {
-    minimize: false,
+    minimize: NODE_ENV === 'development' ? false : true,
   },
 };

@@ -1,5 +1,6 @@
 import React from 'react';
 import Icons from '../../../../../Icons';
+import { Link } from 'react-router-dom';
 
 interface HotProps {
   styles: {
@@ -15,7 +16,7 @@ interface HotProps {
 
 export function Hot({ styles, view }: HotProps): React.ReactElement {
   return (
-    <a className={styles['button']} href="#url-sort">
+    <Link className={styles['button']} to="/hot">
       <Icons.Component
         block={Icons.HotIcons.sort}
         svgClassName={styles['control__svg']}
@@ -29,6 +30,6 @@ export function Hot({ styles, view }: HotProps): React.ReactElement {
           svgPathClassName={styles['control__svg-arrow-path']}
         />
       )}
-    </a>
+    </Link>
   );
 }

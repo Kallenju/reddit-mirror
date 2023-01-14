@@ -5,6 +5,7 @@ import { Routes, Route, Outlet } from 'react-router-dom';
 import Index from './views/Index';
 import Header from './shared/Header';
 import Main from './shared/Main';
+import PostsList from './shared/PostsList';
 import Longread from './shared/Longread';
 import Shortread from './shared/Shortread';
 
@@ -15,21 +16,23 @@ interface AppProps {
 export default function App({ assetsMap }: AppProps): React.ReactElement {
   return (
     <Index assetsMap={assetsMap}>
-      <Routes>
-        <Route
-          path="/posts"
-          element={
-            <>
-              <Header />
-              <Main />
-              <Outlet />
-            </>
-          }
-        >
-          <Route path=":id" element={<Longread />} />
-          <Route path=":id/comments" element={<Shortread />} />
-        </Route>
-      </Routes>
+      <Header />
+      <Main>
+        <Routes>
+          <Route
+            path=":api"
+            element={
+              <>
+                <PostsList />
+                <Outlet />
+              </>
+            }
+          >
+            <Route path=":id" element={<Longread />} />
+            <Route path=":id/comments" element={<Shortread />} />
+          </Route>
+        </Routes>
+      </Main>
     </Index>
   );
 }

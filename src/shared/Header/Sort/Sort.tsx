@@ -47,9 +47,9 @@ const SORT_CONTROLS: Array<SortItem> = [
     As: 'li',
   },
   {
-    id: 'sort__long',
-    dataTestId: 'sort__long',
-    value: <Control As="sort__long" />,
+    id: 'sort__rising',
+    dataTestId: 'sort__rising',
+    value: <Control As="sort__rising" />,
     className: styles['sort__controls-list-item'],
     As: 'li',
   },
@@ -94,9 +94,9 @@ export function Sort({ isOpen }: SortProps): React.ReactElement {
       As: 'li',
     },
     {
-      id: 'sort__long',
-      dataTestId: 'sort__long',
-      value: <Control As="sort__long" />,
+      id: 'sort__rising',
+      dataTestId: 'sort__rising',
+      value: <Control As="sort__rising" />,
       className: styles['sort__controls-list-item'],
       As: 'li',
     },
@@ -123,7 +123,7 @@ export function Sort({ isOpen }: SortProps): React.ReactElement {
               dataTestId === 'sort__hot' ||
               dataTestId === 'sort__new' ||
               dataTestId === 'sort__top' ||
-              dataTestId === 'sort__long')
+              dataTestId === 'sort__rising')
           ) {
             setActiveItemId(dataTestId);
           }

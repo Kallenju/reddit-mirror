@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Icons from '../../../../../Icons';
 
 interface TopProps {
@@ -15,7 +16,7 @@ interface TopProps {
 
 export function Top({ styles, view }: TopProps): React.ReactElement {
   return (
-    <a className={styles['button']} href="#url-sort">
+    <Link className={styles['button']} to="/top">
       <Icons.Component
         block={Icons.TopIcons.sort}
         svgClassName={styles['control__svg']}
@@ -29,6 +30,6 @@ export function Top({ styles, view }: TopProps): React.ReactElement {
           svgPathClassName={styles['control__svg-arrow-path']}
         />
       )}
-    </a>
+    </Link>
   );
 }

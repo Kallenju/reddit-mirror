@@ -27,11 +27,12 @@ namespace NodeJS {
   export default interface ProcessEnv {
     readonly NODE_ENV: 'development' | 'production' | 'test';
     readonly BROWSERSLIST_ENV: 'development' | 'production';
-    readonly DEV_SERVER_PORT: string;
-    readonly HMR_SERVER_PORT: string;
+    readonly URI: string;
+    readonly PORT: string;
     readonly SSR_ABORT_DELAY: string;
     readonly DOTENV: string;
     readonly PROD_SERVER_PORT: string;
     readonly CLIENT_ID: string;
+    readonly CLIENT_SECRET: string;
   }
 }

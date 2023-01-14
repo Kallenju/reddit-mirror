@@ -1,5 +1,6 @@
 import React from 'react';
 import Icons from '../../../../../Icons';
+import { Link } from 'react-router-dom';
 
 interface NewProps {
   styles: {
@@ -15,7 +16,7 @@ interface NewProps {
 
 export function New({ styles, view }: NewProps): React.ReactElement {
   return (
-    <a className={styles['button']} href="#url-sort">
+    <Link className={styles['button']} to="/new">
       <Icons.Component
         block={Icons.NewIcons.sort}
         svgClassName={styles['control__svg']}
@@ -29,6 +30,6 @@ export function New({ styles, view }: NewProps): React.ReactElement {
           svgPathClassName={styles['control__svg-arrow-path']}
         />
       )}
-    </a>
+    </Link>
   );
 }
