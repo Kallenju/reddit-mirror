@@ -6,7 +6,8 @@ dotenv.config({
   path: path.resolve(__dirname, `../.${process.env.NODE_ENV}.env`),
 });
 
-const { NODE_ENV, PORT, CLIENT_ID, CLIENT_SECRET } = process.env;
+const { NODE_ENV, CLIENT_ID, CLIENT_SECRET, PORT, URI, SSR_ABORT_DELAY } =
+  process.env;
 
 const webpackNodeExternals = require('webpack-node-externals');
 const webpack = require('webpack');
