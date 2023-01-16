@@ -35,8 +35,10 @@ export function Dropdown({
   const [isMounted]: [boolean] = useIsMounted();
 
   const [dropdownRoot]: [HTMLDivElement | null] = useDropdownRoot();
-  const handleSetDropdownRootStyles: (elem: HTMLElement | null) => void =
-    useDropdownRootStyles();
+  const handleSetDropdownRootStyles: (
+    elem: HTMLElement | null,
+    isOpen: boolean
+  ) => void = useDropdownRootStyles();
 
   const refDropdownMenu: React.RefObject<HTMLDivElement> =
     useRef<HTMLDivElement>(null);
@@ -52,16 +54,17 @@ export function Dropdown({
     (event: React.MouseEvent | MouseEvent): void => {
       onClick(event);
       onClose();
+      handleSetDropdownRootStyles(refToggleButton.current, false);
       setIsDropdownOpen(false);
     },
-    [onClick, onClose, setIsDropdownOpen]
+    [handleSetDropdownRootStyles, onClick, onClose, setIsDropdownOpen]
   );
 
   const handleOpenDropdown = useCallback(
     (event: React.MouseEvent | MouseEvent): void => {
       onClick(event);
       onOpen();
-      handleSetDropdownRootStyles(refToggleButton.current);
+      handleSetDropdownRootStyles(refToggleButton.current, true);
       setIsDropdownOpen(true);
     },
     [handleSetDropdownRootStyles, onClick, onOpen, setIsDropdownOpen]
