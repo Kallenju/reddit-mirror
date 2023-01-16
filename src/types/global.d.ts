@@ -17,8 +17,6 @@ declare global {
   }
 }
 
-declare const __PORT: string;
-
 declare const __CLIENT_ID: string;
 
 declare const __CLIENT_SECRET: string;
