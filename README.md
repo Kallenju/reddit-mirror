@@ -6,7 +6,11 @@ Here I test my skills in ReactJS, Redux, React Router, Webpack, and other cool s
 
 I'm also trying to use the best practices in ReactJS development and the newest features of the used libraries and tools.
 
-## How to run
+## Where to see it
+
+You can see the project on aws ec2 instance: [Mirror of Reddit on React, RTK, React-Router with SSR](http://ec2-3-126-240-154.eu-central-1.compute.amazonaws.com)
+
+## How to run on your machine
 
 1. Clone the repo (use main branch)
 2. Run `npm ci` to install dependencies
