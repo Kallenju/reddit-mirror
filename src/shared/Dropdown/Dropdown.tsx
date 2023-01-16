@@ -82,7 +82,7 @@ export function Dropdown({
 
   useOutsideClick({
     isMounted,
-    refs: [refDropdownMenu, refToggleButton],
+    refs: [refDropdownMenu],
     callback: (event: MouseEvent) => {
       if (isDropdownOpen) {
         handleCloseDropdown(event);
