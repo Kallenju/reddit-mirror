@@ -19,11 +19,18 @@
     width 2.00rem
     height 2.00rem
 
-.share_view_post-menu,
-.share_view_longread-control-bar,
-.share_view_shortread-control-bar,
 .share_view_comment-control-bar
   .share__svg
     margin-right 0.50rem
     width 1.20rem
     height 1.40rem
+
+.share_view_post-menu,
+.share_view_longread-control-bar,
+.share_view_shortread-control-bar
+  .share__svg
+    margin-right 0.50rem
+    width 1.20rem
+    height 1.40rem
+    @media screen and (max-width var(--breakpoint_xs))
+      margin-right 0
