@@ -15,8 +15,8 @@
     "start": "cross-env NODE_ENV=production node ./dist/server/server.js"
   },
   "engines": {
-    "node": ">=16.19.0",
-    "npm": ">=8.19.0"
+    "node": ">=18.13.0",
+    "npm": ">=9.3.0"
   },
   "dependencies": {
     "@babel/cli": "^7.19.3",
@@ -54,7 +54,6 @@
     "identity-obj-proxy": "^3.0.0",
     "image-minimizer-webpack-plugin": "^3.8.1",
     "mini-css-extract-plugin": "^2.7.2",
-    "node-fetch": "^2.6.7",
     "postcss": "^8.4.19",
     "postcss-loader": "^7.0.2",
     "postcss-merge-rules": "^5.1.3",
