@@ -10,7 +10,7 @@ declare module '*.module.styl' {
 
 declare global {
   export default interface Window {
-    __ASSETS_MAP: {
+    __ASSETS_MAP__: {
       css?: string;
       js?: string;
     };
@@ -20,6 +20,10 @@ declare global {
 declare const __URI: string;
 
 declare const __PORT: string;
+
+declare const __REDIRECT_URI: string;
+
+declare const __REDIRECT_PORT: string;
 
 declare const __CLIENT_ID: string;
 
@@ -33,6 +37,8 @@ namespace NodeJS {
     readonly BROWSERSLIST_ENV: 'development' | 'production';
     readonly URI: string;
     readonly PORT: string;
+    readonly REDIRECT_URI: string;
+    readonly REDIRECT_PORT: string;
     readonly SSR_ABORT_DELAY: string;
     readonly DOTENV: string;
     readonly PROD_SERVER_PORT: string;

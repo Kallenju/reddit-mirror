@@ -10,6 +10,8 @@ const {
   NODE_ENV,
   URI,
   PORT,
+  REDIRECT_URI,
+  REDIRECT_PORT,
   HMR_SERVER_PORT,
   CLIENT_ID,
   CLIENT_SECRET,
@@ -161,6 +163,8 @@ const basePlugins = [
     __CLIENT_SECRET: `'${CLIENT_SECRET}'`,
     __PORT: `'${PORT}'`,
     __URI: `'${URI}'`,
+    __REDIRECT_URI: `'${REDIRECT_URI}'`,
+    __REDIRECT_PORT: `'${REDIRECT_PORT}'`,
     __SSR_ABORT_DELAY: `'${SSR_ABORT_DELAY}'`,
   }),
 ];

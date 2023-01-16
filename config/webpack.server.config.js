@@ -6,8 +6,16 @@ dotenv.config({
   path: path.resolve(__dirname, `../.${process.env.NODE_ENV}.env`),
 });
 
-const { NODE_ENV, CLIENT_ID, CLIENT_SECRET, URI, PORT, SSR_ABORT_DELAY } =
-  process.env;
+const {
+  NODE_ENV,
+  URI,
+  PORT,
+  REDIRECT_URI,
+  REDIRECT_PORT,
+  CLIENT_ID,
+  CLIENT_SECRET,
+  SSR_ABORT_DELAY,
+} = process.env;
 
 const webpackNodeExternals = require('webpack-node-externals');
 const webpack = require('webpack');
@@ -22,6 +30,8 @@ const basePlugins = [
     __CLIENT_SECRET: `'${CLIENT_SECRET}'`,
     __PORT: `'${PORT}'`,
     __URI: `'${URI}'`,
+    __REDIRECT_URI: `'${REDIRECT_URI}'`,
+    __REDIRECT_PORT: `'${REDIRECT_PORT}'`,
     __SSR_ABORT_DELAY: `'${SSR_ABORT_DELAY}'`,
   }),
 ];
