@@ -14,23 +14,25 @@ export default function NotFound(): React.ReactElement {
           rel="icon"
           type="image/png"
           sizes="192x192"
-          href="//static/images/raster/favicon/favicon-192x192.png"
+          href="/static/images/raster/favicon/favicon-192x192.png"
         />
         <link
           rel="preload"
-          href="//static/fonts/roboto-regular.woff2"
+          href="/static/fonts/roboto-regular.woff2"
           as="font"
           type="font/woff2"
+          crossOrigin=""
         />
         <link
           rel="preload"
-          href="//static/fonts/roboto-medium.woff2"
+          href="/static/fonts/roboto-medium.woff2"
           as="font"
           type="font/woff2"
+          crossOrigin=""
         />
 
-        <link rel="stylesheet" href="//static/styles/fonts/fonts.css" />
-        <link rel="stylesheet" href="//static/styles/notfound/notfound.css" />
+        <link rel="stylesheet" href="/static/styles/fonts/fonts.css" />
+        <link rel="stylesheet" href="/static/styles/notfound/notfound.css" />
       </head>
       <body>
         <div className="not-found">
