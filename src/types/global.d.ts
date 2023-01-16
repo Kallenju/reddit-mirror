@@ -17,9 +17,15 @@ declare global {
   }
 }
 
+declare const __URI: string;
+
+declare const __PORT: string;
+
 declare const __CLIENT_ID: string;
 
 declare const __CLIENT_SECRET: string;
+
+declare const __SSR_ABORT_DELAY: string;
 
 namespace NodeJS {
   export default interface ProcessEnv {

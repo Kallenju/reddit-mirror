@@ -1,12 +1,4 @@
 import path from 'path';
-import dotenv from 'dotenv';
-
-dotenv.config({
-  path: path.resolve(process.cwd(), `.${process.env.NODE_ENV}.env`),
-});
-
-const { NODE_ENV, SSR_ABORT_DELAY } = process.env;
-
 import fs from 'fs';
 import { Response } from 'express';
 import crypto from 'crypto';
@@ -52,7 +44,7 @@ export default function render(url: string, response: Response): void {
           if (!isCrawler) {
             response.statusCode = didError ? 500 : 200;
             response.setHeader('content-type', 'text/html');
-            if (NODE_ENV === 'production') {
+            if (process.env.NODE_ENV === 'production') {
               response.setHeader(
                 'Content-Security-Policy',
                 `script-src 'self' 'nonce-${nonce}'`
@@ -70,7 +62,7 @@ export default function render(url: string, response: Response): void {
           if (isCrawler) {
             response.statusCode = didError ? 500 : 200;
             response.setHeader('content-type', 'text/html');
-            if (NODE_ENV === 'production') {
+            if (process.env.NODE_ENV === 'production') {
               response.setHeader(
                 'Content-Security-Policy',
                 `script-src 'self' 'nonce-${nonce}'`
@@ -85,5 +77,5 @@ export default function render(url: string, response: Response): void {
         },
       }
     );
-  setTimeout(() => stream.abort(), Number(SSR_ABORT_DELAY));
+  setTimeout(() => stream.abort(), Number(__SSR_ABORT_DELAY));
 }

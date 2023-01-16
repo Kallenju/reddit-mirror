@@ -1,15 +1,3 @@
-import path from 'path';
-import url from 'url';
-import dotenv from 'dotenv';
-
-const __dirname: string = path.dirname(url.fileURLToPath(import.meta.url));
-
-dotenv.config({
-  path: path.resolve(__dirname, `../.${process.env.NODE_ENV}.env`),
-});
-
-const { NODE_ENV, PORT } = process.env;
-
 import express, { Request, Response } from 'express';
 import cookieParser from 'cookie-parser';
 import compress from 'compression';
@@ -22,7 +10,7 @@ const app = express();
 
 app.use(cookieParser());
 
-if (NODE_ENV === 'production') {
+if (process.env.NODE_ENV === 'production') {
   app.use(
     helmet({
       crossOriginEmbedderPolicy: false,
@@ -78,4 +66,4 @@ app.get('*', (request: Request, response: Response) => {
   renderNotFound(request.url, response);
 });
 
-app.listen(Number(PORT));
+app.listen(Number(__PORT));

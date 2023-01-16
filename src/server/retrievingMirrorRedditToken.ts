@@ -21,7 +21,7 @@ export default async function retrievingMirrorRedditToken(
         'Content-Type': 'application/x-www-form-urlencoded',
         Authorization: `Basic ${btoa(`${__CLIENT_ID}:${__CLIENT_SECRET}`)}`,
       },
-      body: `grant_type=authorization_code&code=${request.query.code}&redirect_uri=${URI}:${PORT}}/auth`,
+      body: `grant_type=authorization_code&code=${request.query.code}&redirect_uri=${__URI}:${__PORT}/auth`,
     }
   );
 
