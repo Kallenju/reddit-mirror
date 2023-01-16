@@ -8,7 +8,7 @@ I'm also trying to use the best practices in ReactJS development and the newest 
 
 ## Where to see it
 
-You can see the project on aws ec2 instance: [Mirror of Reddit on React, RTK, React-Router with SSR](http://ec2-3-126-240-154.eu-central-1.compute.amazonaws.com)
+You can see the project on aws ec2 instance (check http protocol in URI): [Mirror of Reddit on React, RTK, React-Router with SSR](http://ec2-3-126-240-154.eu-central-1.compute.amazonaws.com)
 
 ## How to run on your machine
 

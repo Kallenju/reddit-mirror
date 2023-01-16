@@ -9,7 +9,8 @@
   margin 0
   padding 0
 
-.report_view_post-control-bar
+.report_view_post-control-bar,
+.report_view_comment-control-bar
   .report__svg
     margin-right 0
     width 1.40rem
@@ -17,9 +18,10 @@
 
 .report_view_post-menu,
 .report_view_longread-control-bar,
-.report_view_shortread-control-bar,
-.report_view_comment-control-bar
+.report_view_shortread-control-bar
   .report__svg
     margin-right 0.50rem
     width 1.40rem
     height 1.20rem
+    @media screen and (max-width var(--breakpoint_xs))
+      margin-right 0
