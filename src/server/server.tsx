@@ -13,6 +13,7 @@ app.use(cookieParser());
 if (process.env.NODE_ENV === 'production') {
   app.use(
     helmet({
+      contentSecurityPolicy: false,
       crossOriginEmbedderPolicy: false,
     })
   );

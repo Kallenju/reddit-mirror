@@ -18,6 +18,12 @@ export default function render(url: string, response: Response): void {
           if (!isCrawler) {
             response.statusCode = didError ? 500 : 200;
             response.setHeader('content-type', 'text/html');
+            if (process.env.NODE_ENV === 'production') {
+              response.setHeader(
+                'Content-Security-Policy',
+                `default-src 'self';base-uri 'self';font-src 'self';form-action 'self';frame-ancestors 'self';img-src 'self';object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self';upgrade-insecure-requests`
+              );
+            }
             stream.pipe(response);
           }
         },
@@ -30,6 +36,12 @@ export default function render(url: string, response: Response): void {
           if (isCrawler) {
             response.statusCode = didError ? 500 : 200;
             response.setHeader('content-type', 'text/html');
+            if (process.env.NODE_ENV === 'production') {
+              response.setHeader(
+                'Content-Security-Policy',
+                `default-src 'self';base-uri 'self';font-src 'self';form-action 'self';frame-ancestors 'self';img-src 'self';object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self';upgrade-insecure-requests`
+              );
+            }
             stream.pipe(response);
           }
         },

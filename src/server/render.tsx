@@ -47,7 +47,7 @@ export default function render(url: string, response: Response): void {
             if (process.env.NODE_ENV === 'production') {
               response.setHeader(
                 'Content-Security-Policy',
-                `script-src 'self' 'nonce-${nonce}'`
+                `default-src 'self';base-uri 'self';font-src 'self';form-action 'self';frame-ancestors 'self';img-src 'self';object-src 'none';script-src 'self' 'nonce-${nonce}';script-src-attr 'none';style-src 'self';upgrade-insecure-requests`
               );
             }
             stream.pipe(response);
@@ -65,7 +65,7 @@ export default function render(url: string, response: Response): void {
             if (process.env.NODE_ENV === 'production') {
               response.setHeader(
                 'Content-Security-Policy',
-                `script-src 'self' 'nonce-${nonce}'`
+                `default-src 'self';base-uri 'self';font-src 'self';form-action 'self';frame-ancestors 'self';img-src 'self';object-src 'none';script-src 'self' 'nonce-${nonce}';script-src-attr 'none';style-src 'self';upgrade-insecure-requests`
               );
             }
             stream.pipe(response);
