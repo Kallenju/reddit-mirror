@@ -47,7 +47,7 @@ export default function render(url: string, response: Response): void {
             if (process.env.NODE_ENV === 'production') {
               response.setHeader(
                 'Content-Security-Policy',
-                `default-src 'self';connect-src 'self' https://oauth.reddit.com;base-uri 'self';font-src 'self';form-action 'self';frame-ancestors 'self';img-src 'self' https://oauth.reddit.com https://styles.redditmedia.com https://external-preview.redd.it;object-src 'none';script-src 'self' 'nonce-${nonce}';script-src-attr 'none';style-src 'self';upgrade-insecure-requests`
+                `default-src 'self';connect-src 'self' https://oauth.reddit.com;base-uri 'self';font-src 'self';form-action 'self';frame-ancestors 'self';img-src 'self' https://oauth.reddit.com https://styles.redditmedia.com https://external-preview.redd.it;object-src 'none';script-src 'self' 'nonce-${nonce}';script-src-attr 'none';style-src 'self'`
               );
             }
             stream.pipe(response);
@@ -65,7 +65,7 @@ export default function render(url: string, response: Response): void {
             if (process.env.NODE_ENV === 'production') {
               response.setHeader(
                 'Content-Security-Policy',
-                `default-src 'self';connect-src 'self' https://oauth.reddit.com;base-uri 'self';font-src 'self';form-action 'self';frame-ancestors 'self';img-src 'self' https://oauth.reddit.com https://styles.redditmedia.com https://external-preview.redd.it;object-src 'none';script-src 'self' 'nonce-${nonce}';script-src-attr 'none';style-src 'self';upgrade-insecure-requests`
+                `default-src 'self';connect-src 'self' https://oauth.reddit.com;base-uri 'self';font-src 'self';form-action 'self';frame-ancestors 'self';img-src 'self' https://oauth.reddit.com https://styles.redditmedia.com https://external-preview.redd.it;object-src 'none';script-src 'self' 'nonce-${nonce}';script-src-attr 'none';style-src 'self'`
               );
             }
             stream.pipe(response);
