@@ -28,7 +28,7 @@ const Menu: React.ForwardRefExoticComponent<
           props.styles[`${props.styleBlockName}__dropdown-close-button`]
         }
       >
-        Закрыть
+        Close
       </button>
     </div>
   );
