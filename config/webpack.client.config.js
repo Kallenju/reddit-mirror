@@ -42,6 +42,21 @@ const cssLoaders = (styles) => {
       },
     },
     {
+      loader: 'css-loader',
+      options:
+        styles === 'global'
+          ? {}
+          : {
+              modules: {
+                mode: 'local',
+                localIdentName: '[name]__[local]--[hash:base64:5]',
+              },
+            },
+    },
+    {
+      loader: 'postcss-loader',
+    },
+    {
       loader: 'string-replace-loader',
       options: {
         multiple: [
@@ -67,21 +82,6 @@ const cssLoaders = (styles) => {
           },
         ],
       },
-    },
-    {
-      loader: 'css-loader',
-      options:
-        styles === 'global'
-          ? {}
-          : {
-              modules: {
-                mode: 'local',
-                localIdentName: '[name]__[local]--[hash:base64:5]',
-              },
-            },
-    },
-    {
-      loader: 'postcss-loader',
     },
     {
       loader: 'stylus-loader',
