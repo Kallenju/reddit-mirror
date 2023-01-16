@@ -1,12 +1,3 @@
-import path from 'path';
-import dotenv from 'dotenv';
-
-dotenv.config({
-  path: path.resolve(process.cwd(), `.${process.env.NODE_ENV}.env`),
-});
-
-const { URI, PORT } = process.env;
-
 import { Request } from 'express';
 import RedditToken from '../interfaces/RedditToken';
 
