@@ -6,8 +6,15 @@ dotenv.config({
   path: path.resolve(__dirname, `../.${process.env.NODE_ENV}.env`),
 });
 
-const { NODE_ENV, URI, PORT, HMR_SERVER_PORT, CLIENT_ID, CLIENT_SECRET } =
-  process.env;
+const {
+  NODE_ENV,
+  URI,
+  PORT,
+  HMR_SERVER_PORT,
+  CLIENT_ID,
+  CLIENT_SECRET,
+  SSR_ABORT_DELAY,
+} = process.env;
 
 const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -153,6 +160,8 @@ const basePlugins = [
     __CLIENT_ID: `'${CLIENT_ID}'`,
     __CLIENT_SECRET: `'${CLIENT_SECRET}'`,
     __PORT: `'${PORT}'`,
+    __URI: `'${URI}'`,
+    __SSR_ABORT_DELAY: `'${SSR_ABORT_DELAY}'`,
   }),
 ];
 

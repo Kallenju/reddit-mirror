@@ -20,6 +20,8 @@ const basePlugins = [
     __CLIENT_ID: `'${CLIENT_ID}'`,
     __CLIENT_SECRET: `'${CLIENT_SECRET}'`,
     __PORT: `'${PORT}'`,
+    __URI: `'${URI}'`,
+    __SSR_ABORT_DELAY: `'${SSR_ABORT_DELAY}'`,
   }),
 ];
 
