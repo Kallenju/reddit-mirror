@@ -21,14 +21,12 @@ export default function NotFound(): React.ReactElement {
           href="//static/fonts/roboto-regular.woff2"
           as="font"
           type="font/woff2"
-          crossOrigin=""
         />
         <link
           rel="preload"
           href="//static/fonts/roboto-medium.woff2"
           as="font"
           type="font/woff2"
-          crossOrigin=""
         />
 
         <link rel="stylesheet" href="//static/styles/fonts/fonts.css" />
