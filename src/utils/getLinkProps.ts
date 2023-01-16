@@ -16,7 +16,7 @@ export default function getLinkProps(
       };
     } else {
       return {
-        href: `https://www.reddit.com/api/v1/authorize?client_id=${__CLIENT_ID}&response_type=code&state=RANDOMSTRING&redirect_uri=http://localhost:${__PORT}/auth&duration=permanent&scope=read%20submit%20identity`,
+        href: `https://www.reddit.com/api/v1/authorize?client_id=${__CLIENT_ID}&response_type=code&state=RANDOMSTRING&redirect_uri=${__REDIRECT_URI}:${__REDIRECT_PORT}/auth&duration=permanent&scope=read%20submit%20identity`,
         ariaLabelledby: 'Go to login page',
       };
     }
