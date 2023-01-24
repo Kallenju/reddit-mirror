@@ -106,32 +106,29 @@ export function Sort({ isOpen }: SortProps): React.ReactElement {
     React.Dispatch<React.SetStateAction<SortControl>>
   ] = useState<SortControl>('sort__best');
 
-  const handleOnClick = useCallback(
-    (event: React.MouseEvent | MouseEvent): void => {
-      if (
-        event &&
-        (event.target instanceof HTMLElement ||
-          event.target instanceof SVGElement)
-      ) {
-        const li: HTMLElement | null = event.target.closest('li');
-        if (li) {
-          const dataTestId: string | undefined = li.dataset.testId;
-          if (
-            dataTestId &&
-            dataTestId !== activeItemId &&
-            (dataTestId === 'sort__best' ||
-              dataTestId === 'sort__hot' ||
-              dataTestId === 'sort__new' ||
-              dataTestId === 'sort__top' ||
-              dataTestId === 'sort__rising')
-          ) {
-            setActiveItemId(dataTestId);
-          }
+  function handleOnClick(event: React.MouseEvent | MouseEvent): void {
+    if (
+      event &&
+      (event.target instanceof HTMLElement ||
+        event.target instanceof SVGElement)
+    ) {
+      const li: HTMLElement | null = event.target.closest('li');
+      if (li) {
+        const dataTestId: string | undefined = li.dataset.testId;
+        if (
+          dataTestId &&
+          dataTestId !== activeItemId &&
+          (dataTestId === 'sort__best' ||
+            dataTestId === 'sort__hot' ||
+            dataTestId === 'sort__new' ||
+            dataTestId === 'sort__top' ||
+            dataTestId === 'sort__rising')
+        ) {
+          setActiveItemId(dataTestId);
         }
       }
-    },
-    [activeItemId]
-  );
+    }
+  }
 
   useEffect(() => {
     const activeElementToBeDeletted: SortItem | undefined = SORT_CONTROLS.find(

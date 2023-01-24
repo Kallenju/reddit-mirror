@@ -1,4 +1,4 @@
-import React, { useCallback, useRef } from 'react';
+import React, { useRef } from 'react';
 import { createPortal } from 'react-dom';
 import ToggleButton from './ToggleButton';
 import Menu from './Menu';
@@ -50,38 +50,29 @@ export function Dropdown({
     React.Dispatch<React.SetStateAction<boolean | undefined>>
   ] = useIsDropdownOpen({ isOpen, isMounted });
 
-  const handleCloseDropdown = useCallback(
-    (event: React.MouseEvent | MouseEvent): void => {
-      onClick(event);
-      onClose();
-      handleSetDropdownRootStyles(refToggleButton.current, false);
-      setIsDropdownOpen(false);
-    },
-    [handleSetDropdownRootStyles, onClick, onClose, setIsDropdownOpen]
-  );
+  function handleCloseDropdown(event: React.MouseEvent | MouseEvent): void {
+    onClick(event);
+    onClose();
+    handleSetDropdownRootStyles(refToggleButton.current, false);
+    setIsDropdownOpen(false);
+  }
 
-  const handleOpenDropdown = useCallback(
-    (event: React.MouseEvent | MouseEvent): void => {
-      onClick(event);
-      onOpen();
-      handleSetDropdownRootStyles(refToggleButton.current, true);
-      setIsDropdownOpen(true);
-    },
-    [handleSetDropdownRootStyles, onClick, onOpen, setIsDropdownOpen]
-  );
+  function handleOpenDropdown(event: React.MouseEvent | MouseEvent): void {
+    onClick(event);
+    onOpen();
+    handleSetDropdownRootStyles(refToggleButton.current, true);
+    setIsDropdownOpen(true);
+  }
 
-  const handleToggleDropdown = useCallback(
-    (event: React.MouseEvent | MouseEvent): void => {
-      if (isOpen === undefined) {
-        if (isDropdownOpen) {
-          handleCloseDropdown(event);
-        } else {
-          handleOpenDropdown(event);
-        }
+  function handleToggleDropdown(event: React.MouseEvent | MouseEvent): void {
+    if (isOpen === undefined) {
+      if (isDropdownOpen) {
+        handleCloseDropdown(event);
+      } else {
+        handleOpenDropdown(event);
       }
-    },
-    [handleCloseDropdown, handleOpenDropdown, isDropdownOpen, isOpen]
-  );
+    }
+  }
 
   useOutsideClick({
     isMounted,

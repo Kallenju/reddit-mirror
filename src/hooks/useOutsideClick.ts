@@ -1,4 +1,4 @@
-import { useCallback, useEffect } from 'react';
+import { useEffect } from 'react';
 
 interface UseOutsideClickProps {
   isMounted: boolean;
@@ -10,9 +10,9 @@ export default function useOutsideClick({
   isMounted,
   refs,
   callback,
-}: UseOutsideClickProps): (event: MouseEvent) => void {
-  const handleOutsideClick = useCallback(
-    (event: MouseEvent): void => {
+}: UseOutsideClickProps): void {
+  useEffect((): (() => void) | void => {
+    function handleOutsideClick(event: MouseEvent): void {
       if (
         refs.every((ref: React.RefObject<Node>): boolean => {
           if (event.target instanceof Node) {
@@ -24,11 +24,8 @@ export default function useOutsideClick({
       ) {
         callback(event);
       }
-    },
-    [callback, refs]
-  );
+    }
 
-  useEffect((): (() => void) | void => {
     if (isMounted) {
       document.addEventListener('click', handleOutsideClick);
 
@@ -36,7 +33,5 @@ export default function useOutsideClick({
         document.removeEventListener('click', handleOutsideClick);
       };
     }
-  }, [handleOutsideClick, isMounted]);
-
-  return handleOutsideClick;
+  }, [callback, isMounted, refs]);
 }
